@@ -1,0 +1,17 @@
+{
+  "name": "noahelements",
+  "version": "1.0.0",
+  "description": "Noah Elements — 五行能量灵性晶石",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
