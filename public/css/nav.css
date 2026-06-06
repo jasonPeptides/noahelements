@@ -1,0 +1,172 @@
+/* ============================================================
+   Unified site header — single source of truth.
+   Loaded LAST on every page so it overrides any page-specific
+   .nav rules. Solid beige bar, dark text, works on any backdrop.
+   ============================================================ */
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Fully transparent over the hero — no bar, no divider. Legibility comes
+     from a subtle text/icon shadow (below), not a scrim band. */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  transition: padding 0.4s ease, background 0.5s ease, backdrop-filter 0.5s ease, border-color 0.5s ease;
+  opacity: 0;
+  animation: fadeIn 1s 0.2s forwards ease-out;
+}
+.nav:not(.scrolled) { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
+.nav:not(.scrolled) svg { filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.5)); }
+/* Solid once scrolled past the hero */
+.nav.scrolled {
+  padding: 14px var(--pad-x);
+  background: rgba(12, 8, 5, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 0.5px solid rgba(196, 135, 58, 0.15);
+  text-shadow: none;
+}
+
+/* Three-column layout: menu left · brand centred · actions right */
+.nav-left    { flex: 1 1 0; display: flex; align-items: center; justify-content: flex-start; position: relative; }
+.nav-brand   { flex: 0 0 auto; display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+.nav-actions { flex: 1 1 0; display: flex; align-items: center; justify-content: flex-end; gap: 24px; }
+
+/* Logo and wordmark are mutually exclusive: wordmark on wide screens,
+   sigil mark when the wordmark is hidden (mobile). */
+.nav-brand svg { width: 24px; height: 28px; display: none; }
+.nav-brand-name {
+  font-family: var(--font-head);
+  font-size: 18px; letter-spacing: 4px; text-transform: none;
+  color: var(--ink); white-space: nowrap;
+}
+
+/* Menu button (left) */
+.nav-menu-btn {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: none; border: none; cursor: pointer;
+  color: var(--ink); font: inherit; padding: 6px 0;
+}
+.menu-icon { width: 22px; height: 22px; stroke: currentColor; flex-shrink: 0; }
+.nav-menu-label {
+  font-family: var(--font-body);
+  font-size: 11px; letter-spacing: 3px; text-transform: none;
+  opacity: 0.8; transition: opacity 0.3s, color 0.3s;
+}
+.nav-menu-btn:hover .nav-menu-label { opacity: 1; color: var(--terra); }
+
+/* Element list panel */
+.nav-menu-panel {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: 0;
+  min-width: 220px;
+  padding: 18px 0 12px;
+  background: rgba(20, 14, 8, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid rgba(139, 90, 60, 0.18);
+  box-shadow: 0 18px 44px -16px rgba(62, 39, 35, 0.22);
+  opacity: 0; pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 20;
+}
+.nav-menu-panel.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.nav-menu-panel-head {
+  display: block;
+  padding: 0 28px 12px;
+  margin-bottom: 8px;
+  border-bottom: 0.5px solid rgba(139, 90, 60, 0.15);
+  font-family: var(--font-body);
+  font-size: 10px; letter-spacing: 3px; text-transform: none;
+  color: var(--terra);
+}
+.nav-menu-panel a {
+  display: block; padding: 10px 28px;
+  font-size: 12px; letter-spacing: 2px;
+  color: var(--ink); opacity: 0.75;
+  text-decoration: none; white-space: nowrap;
+  text-transform: none;
+  transition: opacity 0.25s, color 0.25s;
+}
+.nav-menu-panel a:hover { opacity: 1; color: var(--terra); }
+.nav-menu-panel-head-2 {
+  margin-top: 10px;
+  padding-top: 16px;
+  border-top: 0.5px solid rgba(196, 135, 58, 0.18);
+}
+.nav-menu-panel-custom {
+  margin-top: 8px; padding-top: 14px;
+  border-top: 0.5px solid rgba(139, 90, 60, 0.15);
+}
+
+.lang-toggle { color: var(--ink); }
+.ai-btn {
+  border: 0.5px solid var(--terra);
+  color: var(--terra);
+  padding: 11px 22px;
+  font-size: 11px; letter-spacing: 3px; text-transform: none;
+  font-family: var(--font-body);
+  background: transparent; cursor: pointer;
+  transition: all 0.4s ease; font-weight: 400; white-space: nowrap;
+  text-decoration: none;
+}
+.ai-btn:hover { background: var(--terra); color: var(--beige); letter-spacing: 4px; }
+
+/* Push fixed-nav content clear on the homepage hero only handled per-page;
+   sub-pages already account for the bar height. */
+
+/* Override index.css's "transparent over dark hero" light-text variants so the
+   unified solid bar keeps dark, legible text in every scroll state. */
+.nav:not(.scrolled) .nav-brand,
+.nav:not(.scrolled) .nav-brand-name { color: var(--ink); }
+.nav:not(.scrolled) .nav-menu-btn { color: var(--ink); }
+.nav:not(.scrolled) .lang-toggle { color: var(--ink); }
+.nav:not(.scrolled) .lang-toggle .opt.active { color: var(--terra); }
+
+@media (max-width: 760px) {
+  .nav { padding: 16px var(--pad-x); }
+  .nav.scrolled { padding: 12px var(--pad-x); }
+  .nav-menu-label { display: none; }       /* keep just the icon on small screens */
+  .nav-brand-name { display: none; }       /* hide wordmark … */
+  .nav-brand svg { display: block; }       /* … show the sigil mark instead */
+  .nav-actions { gap: 14px; }
+  .nav-menu-panel { min-width: 200px; }
+}
+
+/* ============ Bold serif section titles (loaded last to win) ============ */
+.section-title,
+.pillar-title,
+.band-title,
+.page-hero-title,
+.doc-hero h1,
+.doc h2 { font-weight: 600; }
+
+/* Logo mark above the Bespoke Service title */
+.consultation-mark { display: block; text-align: center; color: var(--beige); margin-bottom: 18px; }
+.consultation-mark svg { width: 54px; height: 61px; display: inline-block; opacity: 0.9; }
+
+/* Bold button labels */
+.btn-primary, .btn-secondary,
+.discover-btn-primary, .discover-btn-secondary,
+.cart-checkout, .add-to-cart, .pricing-cta, .pdp-add { font-weight: 600; }
+
+/* Remove hero divider lines (align to homepage eyebrow styling) */
+.page-hero-divider { display: none; }
+
+/* Header logo line width tuned to match the nav icon line width (~1.27px) */
+.nav-brand svg { stroke-width: 8.5; }
+
+/* Unified body-copy colour on dark page heroes (loaded last to win) */
+.page-hero-desc, body.lang-en .page-hero-desc { color: var(--body); }
+
+/* Bold brand wordmark in header */
+.nav-brand-name { font-weight: 600; }

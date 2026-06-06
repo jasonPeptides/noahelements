@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 五行自测 · Noah Elements</title>
+<meta name="description" content="免费 AI 五行自测，了解你的五行强弱与适配灵石。Noah Elements.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/ai-test.css">
+<link rel="stylesheet" href="css/nav.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Noah Elements">
+<meta property="og:title" content="AI 五行自测 · Noah Elements">
+<meta property="og:description" content="免费 AI 五行自测，了解你的五行强弱与适配灵石。Noah Elements.">
+<meta property="og:image" content="/images/hero-opt.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 五行自测 · Noah Elements">
+<meta name="twitter:description" content="免费 AI 五行自测，了解你的五行强弱与适配灵石。Noah Elements.">
+<meta name="twitter:image" content="/images/hero-opt.jpg">
+<link rel="canonical" href="">
+<script src="/js/seo.js" defer></script>
+</head>
+<body class="lang-en">
+
+<nav class="nav">
+  <div class="nav-left">
+    <button class="nav-menu-btn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-label="Menu">
+      <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <span class="nav-menu-label"><span class="cn-only">菜单</span><span class="en-only">Menu</span></span>
+    </button>
+    <div class="nav-menu-panel" id="menuPanel" role="menu">
+      <span class="nav-menu-panel-head"><span class="cn-only">五行灵石</span><span class="en-only">The Five Elements</span></span>
+      <a href="/collections/wood.html" role="menuitem"><span class="cn-only">木 · Wood</span><span class="en-only">Wood · Origin</span></a>
+      <a href="/collections/fire.html" role="menuitem"><span class="cn-only">火 · Fire</span><span class="en-only">Fire · Embers</span></a>
+      <a href="/collections/earth.html" role="menuitem"><span class="cn-only">土 · Earth</span><span class="en-only">Earth · Roots</span></a>
+      <a href="/collections/metal.html" role="menuitem"><span class="cn-only">金 · Metal</span><span class="en-only">Metal · Endure</span></a>
+      <a href="/collections/water.html" role="menuitem"><span class="cn-only">水 · Water</span><span class="en-only">Water · Still</span></a>
+      <span class="nav-menu-panel-head nav-menu-panel-head-2"><span class="cn-only">了解</span><span class="en-only">Explore</span></span>
+      <a href="/custom.html" role="menuitem"><span class="cn-only">定制解读</span><span class="en-only">Custom Reading</span></a>
+      <a href="/the-practice.html" role="menuitem"><span class="cn-only">五行之道</span><span class="en-only">The Practice</span></a>
+      <a href="/our-story.html" role="menuitem"><span class="cn-only">我们的故事</span><span class="en-only">Our Story</span></a>
+    </div>
+  </div>
+
+  <a href="/index.html" class="nav-brand">
+    <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round">
+      <line x1="80" y1="20" x2="80" y2="100"/>
+      <line x1="96.91" y1="23.75" x2="63.09" y2="96.25"/>
+      <line x1="63.09" y1="23.75" x2="96.91" y2="96.25"/>
+      <circle cx="80" cy="138" r="20"/>
+    </svg>
+    <span class="nav-brand-name">Noah Elements</span>
+  </a>
+
+  <div class="nav-actions">
+    <button class="cart-trigger" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6 5 3H2"/></svg>
+      <span class="cart-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <h1 class="page-hero-title">Five Elements</h1>
+  <div class="page-hero-cn">五行自测</div>
+  <div class="page-hero-divider"></div>
+  <p class="page-hero-desc">
+    <span class="cn-only">八道问题，洞察你的五行能量状态。结果仅供基础参考，如需深度解读，欢迎体验一对一定制服务。</span>
+    <span class="en-only">Eight questions to illuminate your Five Elements energy. Results are for basic reference, for an in-depth reading, explore our bespoke custom service.</span>
+  </p>
+</section>
+
+<!-- Quiz -->
+<section class="quiz-wrap" id="quizSection">
+  <div class="quiz-inner">
+    <!-- Q1 -->
+    <div class="question-panel active" data-q="0">
+      <div class="question-num">
+        <span class="cn-only">第 1 题 / 共 8 题</span>
+        <span class="en-only">Question 1 / 8</span>
+      </div>
+      <div class="question-text">
+        <span class="cn-only">在人群中，你通常是？</span>
+        <span class="en-only">In a group, you tend to be…</span>
+      </div>
+      <div class="options">
+        <button class="option-btn" data-score="fire:2">
+          <span class="option-text cn-only">活跃中心，自然而然带动气氛</span>
+          <span class="option-text en-only">The energetic centre, you naturally lift the mood</span>
+        </button>
+        <button class="option-btn" data-score="wood:2">
+          <span class="option-text cn-only">主动发起，喜欢领导方向</span>
+          <span class="option-text en-only">The one who initiates, you like to lead the way</span>
+        </button>
+        <button class="option-btn" data-score="earth:2">
+          <span class="option-text cn-only">默默支持，让所有人感到安心</span>
+          <span class="option-text en-only">A quiet support, you make everyone feel at ease</span>
+        </button>
+        <button class="option-btn" data-score="water:2">
+          <span class="option-text cn-only">冷静观察，细心感知每个细节</span>
+          <span class="option-text en-only">The quiet observer, you notice what others miss</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-panel" data-q="1">
+      <div class="question-num">
+        <span class="cn-only">第 2 题 / 共 8 题</span>
+        <span class="en-only">Question 2 / 8</span>
+      </div>
+      <div class="question-text">
+        <span class="cn-only">面对压力时，你的第一反应是？</span>
+        <span class="en-only">When under pressure, your first instinct is…</span>
+      </div>
+      <div class="options">
+        <button class="option-btn" data-score="metal:2">
+          <span class="option-text cn-only">立刻整理思路，找出最优方案</span>
+          <span class="option-text en-only">Organise your thoughts and find the best plan</span>
+        </button>
+        <button class="option-btn" data-score="fire:2">
+          <span class="option-text cn-only">用热情和行动打破僵局</span>
+          <span class="option-text en-only">Break through with energy and action</span>
+        </button>
+        <button class="option-btn" data-score="water:2">
+          <span class="option-text cn-only">先沉淀情绪，再冷静应对</span>
+          <span class="option-text en-only">Settle your emotions first, then respond calmly</span>
+        </button>
+        <button class="option-btn" data-score="earth:2">
+          <span class="option-text cn-only">寻求他人帮助，倚靠集体力量</span>
+          <span class="option-text en-only">Seek support, you draw strength from others</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-panel" data-q="2">
+      <div class="question-num">
+        <span class="cn-only">第 3 题 / 共 8 题</span>
+        <span class="en-only">Question 3 / 8</span>
+      </div>
+      <div class="question-text">
+        <span class="cn-only">最能令你放松身心的环境是？</span>
+        <span class="en-only">The environment that restores you most is…</span>
+      </div>
+      <div class="options">
+        <button class="option-btn" data-score="wood:2">
+          <span class="option-text cn-only">郁郁葱葱的森林或公园</span>
+          <span class="option-text en-only">A lush forest or park</span>
+        </button>
+        <button class="option-btn" data-score="water:2">
+          <span class="option-text cn-only">海边或湖畔，听水声</span>
+          <span class="option-text en-only">By the sea or lake, listening to water</span>
+        </button>
+        <button class="option-btn" data-score="fire:2">
+          <span class="option-text cn-only">充满温暖光线与人气的咖啡馆</span>
+          <span class="option-text en-only">A warm, lively café full of light and energy</span>
+        </button>
+        <button class="option-btn" data-score="earth:2">
+          <span class="option-text cn-only">家里或熟悉的安静角落</span>
+          <span class="option-text en-only">Home or a quiet familiar corner</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-panel" data-q="3">
+      <div class="question-num">
+        <span class="cn-only">第 4 题 / 共 8 题</span>
+        <span class="en-only">Question 4 / 8</span>
+      </div>
+      <div class="question-text">
+        <span class="cn-only">在做决定时，你更依赖？</span>
+        <span class="en-only">When making decisions, you rely more on…</span>
+      </div>
+      <div class="options">
+        <button class="option-btn" data-score="metal:2">
+          <span class="option-text cn-only">逻辑分析与客观数据</span>
+          <span class="option-text en-only">Logic, analysis and objective facts</span>
+        </button>
+        <button class="option-btn" data-score="fire:2">
+          <span class="option-text cn-only">内心的冲动与热情</span>
+          <span class="option-text en-only">Inner impulse and passion</span>
+        </button>
+        <button class="option-btn" data-score="water:2">
+          <span class="option-text cn-only">深入的直觉与内观</span>
+          <span class="option-text en-only">Deep intuition and inner knowing</span>
+        </button>
+        <button class="option-btn" data-score="wood:2">
+          <span class="option-text cn-only">未来愿景与成长潜力</span>
+          <span class="option-text en-only">Future vision and growth potential</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-panel" data-q="4">
+      <div class="question-num">
+        <span class="cn-only">第 5 题 / 共 8 题</span>
+        <span class="en-only">Question 5 / 8</span>
+      </div>
+      <div class="question-text">
+        <span class="cn-only">你最常感受到的内心状态是？</span>
+        <span class="en-only">The inner state you experience most often is…</span>
+      </div>
+      <div class="options">
+        <button class="option-btn" data-score="fire:2">
+          <span class="option-text cn-only">热情澎湃，充满想法</span>
+          <span class="option-text en-only">Enthusiastic, brimming with ideas</span>
+        </button>
+        <button class="option-btn" data-score="earth:2">
+          <span class="option-text cn-only">平静踏实，心里有底</span>
+          <span class="option-text en-only">Calm and grounded, steady at heart</span>
+        </button>
+        <button class="option-btn" data-score="metal:2">
+          <span class="option-text cn-only">思绪清晰，专注有序</span>
+          <span class="option-text en-only">Clear-minded, focused and orderly</span>
+        </button>
+        <button class="option-btn" data-score="water:2">
+          <span class="option-text cn-only">深思内敛，喜欢独处探索内心</span>
+          <span class="option-text en-only">Reflective and private, you explore within</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-panel" data-q="5">
+      <div class="question-num">
+        <span class="cn-only">第 6 题 / 共 8 题</span>
+        <span class="en-only">Question 6 / 8</span>
+      </div>
+      <div class="question-text">
+        <span class="cn-only">你最看重人际关系中的哪一点？</span>
+        <span class="en-only">In relationships, what matters most to you?</span>
+      </div>
+      <div class="options">
+        <button class="option-btn" data-score="fire:2">
+          <span class="option-text cn-only">真实的热情与深度连结</span>
+          <span class="option-text en-only">Genuine passion and deep connection</span>
+        </button>
+        <button class="option-btn" data-score="wood:2">
+          <span class="option-text cn-only">相互激励，共同成长</span>
+          <span class="option-text en-only">Mutual growth and encouragement</span>
+        </button>
+        <button class="option-btn" data-score="earth:2">
+          <span class="option-text cn-only">稳定信任，长久陪伴</span>
+          <span class="option-text en-only">Stability, trust and lasting companionship</span>
+        </button>
+        <button class="option-btn" data-score="metal:2">
+          <span class="option-text cn-only">诚实清晰，不拖泥带水</span>
+          <span class="option-text en-only">Honesty and clarity, no ambiguity</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-panel" data-q="6">
+      <div class="question-num">
+        <span class="cn-only">第 7 题 / 共 8 题</span>
+        <span class="en-only">Question 7 / 8</span>
+      </div>
+      <div class="question-text">
+        <span class="cn-only">最近你常常感到？</span>
+        <span class="en-only">Lately, you often feel…</span>
+      </div>
+      <div class="options">
+        <button class="option-btn" data-score="fire:2">
+          <span class="option-text cn-only">热情高涨但有些心浮气躁</span>
+          <span class="option-text en-only">Energised but restless or anxious</span>
+        </button>
+        <button class="option-btn" data-score="metal:2">
+          <span class="option-text cn-only">思维敏锐但有些过于苛求自己</span>
+          <span class="option-text en-only">Sharp-minded but overly self-critical</span>
+        </button>
+        <button class="option-btn" data-score="water:2">
+          <span class="option-text cn-only">内心宁静但有时疲惫、想要隐遁</span>
+          <span class="option-text en-only">Inwardly still but sometimes exhausted, craving solitude</span>
+        </button>
+        <button class="option-btn" data-score="wood:2">
+          <span class="option-text cn-only">充满冲劲但容易急躁或压力大</span>
+          <span class="option-text en-only">Driven but prone to frustration or stress</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-panel" data-q="7">
+      <div class="question-num">
+        <span class="cn-only">第 8 题 / 共 8 题</span>
+        <span class="en-only">Question 8 / 8</span>
+      </div>
+      <div class="question-text">
+        <span class="cn-only">你最向往的人生状态是？</span>
+        <span class="en-only">The life you most aspire to is…</span>
+      </div>
+      <div class="options">
+        <button class="option-btn" data-score="fire:2">
+          <span class="option-text cn-only">充满热忱与光芒，被爱与创造力包围</span>
+          <span class="option-text en-only">Full of passion and radiance, surrounded by love and creativity</span>
+        </button>
+        <button class="option-btn" data-score="earth:2">
+          <span class="option-text cn-only">踏实安稳，家庭与事业双丰收</span>
+          <span class="option-text en-only">Grounded and stable, flourishing in both home and work</span>
+        </button>
+        <button class="option-btn" data-score="metal:2">
+          <span class="option-text cn-only">内心纯净，生活精简而有质感</span>
+          <span class="option-text en-only">A clear mind, refined living, quiet elegance</span>
+        </button>
+        <button class="option-btn" data-score="wood:2">
+          <span class="option-text cn-only">不断突破与成长，实现人生使命</span>
+          <span class="option-text en-only">Constant growth and breakthrough, fulfilling your purpose</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="quiz-nav">
+      <button class="btn-secondary quiz-prev" id="btnPrev">
+        <span class="cn-only">上一题</span>
+        <span class="en-only">Previous</span>
+      </button>
+      <button class="btn-primary quiz-next" id="btnNext" disabled>
+        <span class="cn-only">下一题</span>
+        <span class="en-only">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="results-panel" id="resultsSection">
+  <div class="results-inner">
+    <h2 class="results-heading">
+      <span class="cn-only">你的五行结果</span>
+      <span class="en-only">Your Five Elements Reading</span>
+    </h2>
+
+    <div class="element-bars" id="elementBars"></div>
+
+    <div class="dominant-card" id="dominantCard"></div>
+
+    <div class="recs-title">
+      <span class="cn-only">推荐灵石</span>
+      <span class="en-only">Recommended Stones</span>
+    </div>
+    <div class="recs-title-cn">适合你的五行晶石</div>
+    <div class="recs-grid" id="recsGrid"></div>
+
+    <a class="btn-secondary results-cta" id="seeAllStones" href="#">
+      <span class="cn-only">查看全部系列</span>
+      <span class="en-only">See all stones</span>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-mark">
+        <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round">
+          <line x1="80" y1="20" x2="80" y2="100"/>
+          <line x1="96.91" y1="23.75" x2="63.09" y2="96.25"/>
+          <line x1="63.09" y1="23.75" x2="96.91" y2="96.25"/>
+          <circle cx="80" cy="138" r="20"/>
+        </svg>
+        <span class="footer-brand-name">Noah Elements</span>
+      </div>
+      <p class="footer-brand-tagline">
+        <span class="cn-only">五行能量灵性晶石<br>手工制作 · 普陀山祈福加持</span>
+        <span class="en-only">Five Elements Spiritual Stones<br>Handcrafted · Blessed at Putuo Mountain</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4><span class="cn-only">五行</span><span class="en-only">Elements</span></h4>
+      <ul>
+        <li class="cn"><a href="/collections/fire.html" class="cn-only">火 · 火元素</a><a href="/collections/fire.html" class="en-only">Fire</a></li>
+        <li class="cn"><a href="/collections/earth.html" class="cn-only">土 · 土元素</a><a href="/collections/earth.html" class="en-only">Earth</a></li>
+        <li class="cn"><a href="/collections/metal.html" class="cn-only">金 · 金元素</a><a href="/collections/metal.html" class="en-only">Metal</a></li>
+        <li class="cn"><a href="/collections/water.html" class="cn-only">水 · 水元素</a><a href="/collections/water.html" class="en-only">Water</a></li>
+        <li class="cn"><a href="/collections/wood.html" class="cn-only">木 · 木元素</a><a href="/collections/wood.html" class="en-only">Wood</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4><span class="cn-only">探索</span><span class="en-only">Discover</span></h4>
+      <ul>
+        <li class="cn"><a href="/ai-test.html" class="cn-only">寻找你的元素</a><a href="/ai-test.html" class="en-only">Find Your Element</a></li>
+        <li class="cn"><a href="/custom.html" class="cn-only">定制解读</a><a href="/custom.html" class="en-only">Custom Reading</a></li>
+        <li class="cn"><a href="/the-practice.html" class="cn-only">五行之道</a><a href="/the-practice.html" class="en-only">The Practice</a></li>
+        <li class="cn"><a href="/our-story.html" class="cn-only">我们的故事</a><a href="/our-story.html" class="en-only">Our Story</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4><span class="cn-only">支持</span><span class="en-only">Support</span></h4>
+      <ul>
+        <li class="cn"><a href="/faq.html" class="cn-only">常见问题</a><a href="/faq.html" class="en-only">FAQ</a></li>
+        <li class="cn"><a href="/shipping.html" class="cn-only">配送</a><a href="/shipping.html" class="en-only">Shipping</a></li>
+        <li class="cn"><a href="/returns.html" class="cn-only">退换货</a><a href="/returns.html" class="en-only">Returns</a></li>
+        <li class="cn"><a href="/contact.html" class="cn-only">联系我们</a><a href="/contact.html" class="en-only">Contact</a></li>
+        <li class="cn"><a href="/privacy.html" class="cn-only">隐私与 Cookie</a><a href="/privacy.html" class="en-only">Privacy &amp; Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Noah Elements.</div>
+    <div class="footer-social">
+      <a class="footer-social-icon footer-social-ig" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== Language toggle =====
+const toggleBtn = document.getElementById('langToggle');
+const body = document.body;
+
+
+// ===== Element data =====
+const ELEMENTS = {
+  fire:  {
+    en: 'Fire', cn: '火',
+    color: '#B33A3A',
+    collection: 'collections/fire.html',
+    desc_zh: '你的主导元素是火，代表热情、活力与表达力。火旺之人充满磁场，温暖感染周围的人。建议佩戴朱砂、南红玛瑙或石榴石，以稳定火行能量、守护心神。',
+    desc_en: 'Your dominant element is Fire, passion, vitality and self-expression. Fire types radiate warmth and naturally draw others in. We recommend Cinnabar, Red Agate or Garnet to steady your Fire energy and protect your spirit.',
+    svg: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"><path d="M24 8 L15 26 L24 34 L33 26 Z"/><path d="M24 16 L21 26" stroke-width="0.5"/></svg>`,
+    recs: [
+      { en: 'Cinnabar Strand', cn: '朱砂手串', element_en: 'Fire', element_cn: '火' },
+      { en: 'Red Agate Pendant', cn: '南红吊坠', element_en: 'Fire', element_cn: '火' },
+      { en: 'Garnet Bracelet', cn: '石榴石手链', element_en: 'Fire', element_cn: '火' }
+    ]
+  },
+  earth: {
+    en: 'Earth', cn: '土',
+    color: '#8B6914',
+    collection: 'collections/earth.html',
+    desc_zh: '你的主导元素是土，代表稳定、包容与滋养。土旺之人踏实可靠，是人群中的定海神针。建议佩戴虎眼石、琥珀或黄水晶，以增强大地能量、凝聚内心安定。',
+    desc_en: 'Your dominant element is Earth, stability, nurturing and reliability. Earth types are the steady anchors others depend on. We recommend Tiger Eye, Amber or Citrine to strengthen your grounding energy and bring inner steadiness.',
+    svg: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"><rect x="12" y="12" width="24" height="24"/><line x1="24" y1="8" x2="24" y2="40" stroke-width="0.5" opacity="0.5"/><line x1="8" y1="24" x2="40" y2="24" stroke-width="0.5" opacity="0.5"/></svg>`,
+    recs: [
+      { en: 'Tiger Eye Bracelet', cn: '虎眼石手串', element_en: 'Earth', element_cn: '土' },
+      { en: 'Amber Pendant', cn: '琥珀吊坠', element_en: 'Earth', element_cn: '土' },
+      { en: 'Citrine Necklace', cn: '黄水晶项链', element_en: 'Earth', element_cn: '土' }
+    ]
+  },
+  metal: {
+    en: 'Metal', cn: '金',
+    color: '#A89060',
+    collection: 'collections/metal.html',
+    desc_zh: '你的主导元素是金，代表清净、精准与内在锋芒。金旺之人思维敏锐，对自己和世界有高度的审美与标准。建议佩戴白水晶、月光石或银发晶，以净化思绪、提升能量。',
+    desc_en: 'Your dominant element is Metal, clarity, precision and refined inner brilliance. Metal types possess sharp minds and high standards. We recommend White Stone, Moonstone or Silver Rutile to purify your thinking and amplify your aura.',
+    svg: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="9"/><circle cx="24" cy="24" r="2.5" fill="currentColor"/></svg>`,
+    recs: [
+      { en: 'White Stone Bracelet', cn: '白水晶手串', element_en: 'Metal', element_cn: '金' },
+      { en: 'Moonstone Pendant', cn: '月光石吊坠', element_en: 'Metal', element_cn: '金' },
+      { en: 'Silver Rutile Necklace', cn: '银发晶项链', element_en: 'Metal', element_cn: '金' }
+    ]
+  },
+  water: {
+    en: 'Water', cn: '水',
+    color: '#3A6B8B',
+    collection: 'collections/water.html',
+    desc_zh: '你的主导元素是水，代表流动、智慧与深邃的内在力量。水旺之人直觉敏锐，内心世界丰富而深沉。建议佩戴海蓝宝、青金石或黑曜石，以畅通能量流动、深化内观。',
+    desc_en: 'Your dominant element is Water, flow, wisdom and profound inner depth. Water types are highly intuitive with a rich inner world. We recommend Aquamarine, Lapis Lazuli or Obsidian to keep your energy flowing freely and deepen inner awareness.',
+    svg: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"><path d="M8 18 Q13 11 18 18 T28 18 T38 18"/><path d="M8 26 Q13 19 18 26 T28 26 T38 26"/><path d="M8 34 Q13 27 18 34 T28 34 T38 34"/></svg>`,
+    recs: [
+      { en: 'Aquamarine Bracelet', cn: '海蓝宝手链', element_en: 'Water', element_cn: '水' },
+      { en: 'Lapis Lazuli Ring', cn: '青金石戒指', element_en: 'Water', element_cn: '水' },
+      { en: 'Obsidian Bracelet', cn: '黑曜石手链', element_en: 'Water', element_cn: '水' }
+    ]
+  },
+  wood: {
+    en: 'Wood', cn: '木',
+    color: '#4A7C3F',
+    collection: 'collections/wood.html',
+    desc_zh: '你的主导元素是木，代表成长、向上与无尽的生命力。木旺之人充满创造力，目标清晰，总在寻找突破与进步。建议佩戴绿东陵、孔雀石或和田玉，以激发生机、疏导情绪郁结。',
+    desc_en: 'Your dominant element is Wood, growth, upward movement and boundless vitality. Wood types are creative, purposeful, always seeking progress. We recommend Green Aventurine, Malachite or Jade to amplify your life-force and release emotional tension.',
+    svg: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"><line x1="24" y1="8" x2="24" y2="40"/><path d="M24 16 L16 11 M24 16 L32 11"/><path d="M24 24 L14 18 M24 24 L34 18"/></svg>`,
+    recs: [
+      { en: 'Green Aventurine Bracelet', cn: '绿东陵手串', element_en: 'Wood', element_cn: '木' },
+      { en: 'Malachite Pendant', cn: '孔雀石吊坠', element_en: 'Wood', element_cn: '木' },
+      { en: 'Jade Pendant', cn: '和田玉吊坠', element_en: 'Wood', element_cn: '木' }
+    ]
+  }
+};
+
+// ===== Quiz state =====
+const TOTAL = 8;
+let current = 0;
+const answers = new Array(TOTAL).fill(null); // { element, score }
+const scores = { fire: 0, earth: 0, metal: 0, water: 0, wood: 0 };
+
+const panels = document.querySelectorAll('.question-panel');
+const progressFill = document.getElementById('progressFill');
+const progressLabel = document.getElementById('progressLabel');
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+
+function updateProgress() {
+  if (!progressFill && !progressLabel) return;
+}
+
+function showPanel(idx) {
+  panels.forEach((p, i) => {
+    p.classList.toggle('active', i === idx);
+  });
+  btnPrev.classList.toggle('visible', idx > 0);
+  const hasAnswer = answers[idx] !== null;
+  const isLast = idx === TOTAL - 1;
+  btnNext.disabled = !hasAnswer;
+  btnNext.querySelector('.cn-only').textContent = isLast ? '查看结果' : '下一题';
+  btnNext.querySelector('.en-only').textContent = isLast ? 'See Results' : 'Next';
+}
+
+// Option selection
+panels.forEach((panel, qi) => {
+  panel.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove previous selection for this question
+      if (answers[qi]) {
+        const prev = answers[qi];
+        scores[prev.element] -= prev.score;
+      }
+      // Parse score
+      const [el, sc] = btn.dataset.score.split(':');
+      answers[qi] = { element: el, score: parseInt(sc) };
+      scores[el] += parseInt(sc);
+      // UI
+      panel.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      btnNext.disabled = false;
+    });
+  });
+});
+
+btnPrev.addEventListener('click', () => {
+  if (current > 0) { current--; showPanel(current); updateProgress(); }
+});
+
+btnNext.addEventListener('click', () => {
+  if (current < TOTAL - 1) {
+    current++;
+    showPanel(current);
+    updateProgress();
+  } else {
+    showResults();
+  }
+});
+
+// ===== Results =====
+function showResults() {
+  document.getElementById('quizSection').style.display = 'none';
+  const resultsSection = document.getElementById('resultsSection');
+  resultsSection.classList.add('active');
+  resultsSection.style.display = 'block';
+  document.querySelector('.page-hero').style.display = 'none';
+
+  // Determine dominant element
+  const total = Object.values(scores).reduce((a, b) => a + b, 0) || 1;
+  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const dominant = sorted[0][0];
+  const el = ELEMENTS[dominant];
+
+
+  // Bars
+  const barsEl = document.getElementById('elementBars');
+  barsEl.innerHTML = '';
+  const order = ['fire','earth','metal','water','wood'];
+  const labels = { fire: 'Fire 火', earth: 'Earth 土', metal: 'Metal 金', water: 'Water 水', wood: 'Wood 木' };
+  order.forEach(key => {
+    const pct = Math.round((scores[key] / total) * 100);
+    const color = ELEMENTS[key].color;
+    const row = document.createElement('div');
+    row.className = 'element-row';
+    row.innerHTML = `
+      <div class="element-label">${labels[key]}</div>
+      <div class="element-bar-track">
+        <div class="element-bar-fill" style="background:${color}" data-pct="${pct}"></div>
+      </div>
+      <div class="element-pct">${pct}%</div>`;
+    barsEl.appendChild(row);
+  });
+  // Animate bars after paint
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    barsEl.querySelectorAll('.element-bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.pct + '%';
+    });
+  }));
+
+  // Dominant card
+  const card = document.getElementById('dominantCard');
+  const isZh = body.classList.contains('lang-zh');
+  card.innerHTML = `
+    <div class="dominant-circle">
+      <span class="dominant-char">${el.cn}</span>
+      <span class="dominant-en">${el.en}</span>
+    </div>
+    <p class="dominant-desc">
+      <span class="cn-only">${el.desc_zh}</span>
+      <span class="en-only">${el.desc_en}</span>
+    </p>`;
+
+  // Apply lang
+  if (!isZh) {
+    card.querySelectorAll('.cn-only').forEach(e => e.style.display = 'none');
+  } else {
+    card.querySelectorAll('.en-only').forEach(e => e.style.display = 'none');
+  }
+
+  // "See all stones" → the dominant element's collection page
+  var seeAll = document.getElementById('seeAllStones');
+  if (seeAll) {
+    seeAll.setAttribute('href', '/' + el.collection);
+    seeAll.querySelector('.en-only').textContent = 'See all ' + el.en + ' stones';
+    seeAll.querySelector('.cn-only').textContent = '查看全部' + el.cn + '系列';
+  }
+
+  // Recommendations: dominant + deficient elements' stones
+  const deficient = sorted[sorted.length - 1][0];
+  const recsGrid = document.getElementById('recsGrid');
+  recsGrid.innerHTML = '';
+  (function loadRecs(){
+    if (window.NoahCatalog && window.NoahCatalog.loadCollection) {
+      window.NoahCatalog.loadCollection(recsGrid, dominant, 3);
+    } else { setTimeout(loadRecs, 120); }
+  })();
+}
+
+// Init
+showPanel(0);
+updateProgress();
+</script>
+<script src="js/lang.js"></script>
+<script src="js/shopify.js"></script>
+<script src="js/catalog.js"></script>
+<script src="/js/currency.js"></script>
+<script src="/js/cookies.js"></script>
+</body>
+</html>

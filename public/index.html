@@ -1,22 +1,54 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noah Elements — 诺亚宇宙</title>
-<meta name="description" content="Five Elements Spiritual Crystals · 五行能量灵性晶石 · 手工制作 · 普陀山祈福加持">
+<title>Noah Elements · 诺亚宇宙</title>
+<meta name="description" content="Five Elements Spiritual Stones · 五行能量灵性晶石 · 手工制作 · 普陀山祈福加持">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero-opt.jpg" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/nav.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Noah Elements">
+<meta property="og:title" content="Noah Elements · 诺亚宇宙">
+<meta property="og:description" content="Five Elements Spiritual Stones · 五行能量灵性晶石 · 手工制作 · 普陀山祈福加持">
+<meta property="og:image" content="/images/hero-opt.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Noah Elements · 诺亚宇宙">
+<meta name="twitter:description" content="Five Elements Spiritual Stones · 五行能量灵性晶石 · 手工制作 · 普陀山祈福加持">
+<meta name="twitter:image" content="/images/hero-opt.jpg">
+<link rel="canonical" href="">
+<script src="/js/seo.js" defer></script>
 </head>
-<body class="lang-zh">
+<body class="lang-en">
 
 <!-- ============ 顶部导航 ============ -->
 <nav class="nav" id="nav">
-  <a href="#top" class="nav-brand">
-    <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+  <div class="nav-left">
+    <button class="nav-menu-btn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-label="Menu">
+      <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <span class="nav-menu-label"><span class="cn-only">菜单</span><span class="en-only">Menu</span></span>
+    </button>
+    <div class="nav-menu-panel" id="menuPanel" role="menu">
+      <span class="nav-menu-panel-head"><span class="cn-only">五行灵石</span><span class="en-only">The Five Elements</span></span>
+      <a href="/collections/wood.html" role="menuitem"><span class="cn-only">木 · Wood</span><span class="en-only">Wood · Origin</span></a>
+      <a href="/collections/fire.html" role="menuitem"><span class="cn-only">火 · Fire</span><span class="en-only">Fire · Embers</span></a>
+      <a href="/collections/earth.html" role="menuitem"><span class="cn-only">土 · Earth</span><span class="en-only">Earth · Roots</span></a>
+      <a href="/collections/metal.html" role="menuitem"><span class="cn-only">金 · Metal</span><span class="en-only">Metal · Endure</span></a>
+      <a href="/collections/water.html" role="menuitem"><span class="cn-only">水 · Water</span><span class="en-only">Water · Still</span></a>
+      <span class="nav-menu-panel-head nav-menu-panel-head-2"><span class="cn-only">了解</span><span class="en-only">Explore</span></span>
+      <a href="/custom.html" role="menuitem"><span class="cn-only">定制解读</span><span class="en-only">Custom Reading</span></a>
+      <a href="/the-practice.html" role="menuitem"><span class="cn-only">五行之道</span><span class="en-only">The Practice</span></a>
+      <a href="/our-story.html" role="menuitem"><span class="cn-only">我们的故事</span><span class="en-only">Our Story</span></a>
+    </div>
+  </div>
+
+  <a href="/index.html" class="nav-brand">
+    <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round">
       <line x1="80" y1="20" x2="80" y2="100"/>
       <line x1="96.91" y1="23.75" x2="63.09" y2="96.25"/>
       <line x1="63.09" y1="23.75" x2="96.91" y2="96.25"/>
@@ -25,276 +57,239 @@
     <span class="nav-brand-name">Noah Elements</span>
   </a>
 
-  <div class="nav-menu">
-    <div class="nav-item">
-      <a href="#story" class="nav-main"><span class="cn-only">品牌故事</span><span class="en-only">Story</span></a>
-      <div class="nav-dropdown">
-        <a href="#story"><span class="cn-only">品牌缘起</span><span class="en-only">Origin</span></a>
-        <a href="#practice"><span class="cn-only">修行初心</span><span class="en-only">Practice</span></a>
-      </div>
-    </div>
-    <div class="nav-item">
-      <a href="#elements" class="nav-main"><span class="cn-only">五行灵石</span><span class="en-only">Stones</span></a>
-      <div class="nav-dropdown">
-        <a href="collections/fire.html"><span class="cn-only">火 · Fire</span><span class="en-only">Fire</span></a>
-        <a href="collections/earth.html"><span class="cn-only">土 · Earth</span><span class="en-only">Earth</span></a>
-        <a href="collections/metal.html"><span class="cn-only">金 · Metal</span><span class="en-only">Metal</span></a>
-        <a href="collections/water.html"><span class="cn-only">水 · Water</span><span class="en-only">Water</span></a>
-        <a href="collections/wood.html"><span class="cn-only">木 · Wood</span><span class="en-only">Wood</span></a>
-      </div>
-    </div>
-    <div class="nav-item">
-      <a href="#custom" class="nav-main"><span class="cn-only">服务定制</span><span class="en-only">Service</span></a>
-      <div class="nav-dropdown">
-        <a href="#service-ai"><span class="cn-only">AI 五行自测</span><span class="en-only">AI Test</span></a>
-        <a href="#service-custom"><span class="cn-only">一对一定制</span><span class="en-only">Custom</span></a>
-      </div>
-    </div>
-  </div>
-
   <div class="nav-actions">
-    <button class="lang-toggle" id="langToggle" aria-label="Switch language">
-      <span class="opt active" data-lang="zh">中</span>
-      <span class="sep">/</span>
-      <span class="opt" data-lang="en">EN</span>
+    <button class="cart-trigger" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6 5 3H2"/></svg>
+      <span class="cart-count">0</span>
     </button>
-    <a href="ai-test.html" class="ai-btn">
-      <span class="cn-only">AI 五行自测</span>
-      <span class="en-only">Five Elements Test</span>
-    </a>
   </div>
 </nav>
 
 <!-- ============ 第 1 屏 Hero ============ -->
 <section class="hero" id="top">
-  <div class="hero-logo">
-    <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-      <line x1="80" y1="20" x2="80" y2="100"/>
-      <line x1="96.91" y1="23.75" x2="63.09" y2="96.25"/>
-      <line x1="63.09" y1="23.75" x2="96.91" y2="96.25"/>
-      <circle cx="80" cy="138" r="20"/>
-    </svg>
-  </div>
 
-  <div class="hero-title-wrap">
-    <h1 class="hero-title">Noah Elements</h1>
-  </div>
+  <!-- Photo background -->
+  <video class="hero-bg" autoplay muted loop playsinline poster="images/hero-opt.jpg" aria-hidden="true">
+    <source src="images/1878.MP4" type="video/mp4">
+  </video>
+  <div class="hero-scrim" aria-hidden="true"></div>
 
-  <div class="hero-divider"></div>
-
-  <p class="hero-tagline">
-    <span class="cn-only">星芒交汇 · 五行归序</span>
-    <span class="en-only">Stars Align, Elements Balance</span>
-  </p>
-
-  <div class="scroll-hint">
-    <div class="label">
-      <span class="cn-only">向下探索</span>
-      <span class="en-only">Scroll</span>
+  <div class="hero-copy" data-reveal>
+    <h1 class="hero-headline">
+      <span class="en-only">Not all stones are for the same moment.</span>
+      <span class="cn-only">不是所有的石头，都为同一个时刻而存在。</span>
+    </h1>
+    <div class="hero-cta">
+      <a href="/ai-test.html" class="btn-secondary"><span class="en-only">Find yours</span><span class="cn-only">测算我的元素</span></a>
     </div>
-    <div class="line-wrap"></div>
+  </div>
+
+</section>
+
+<!-- Brushstroke section transition -->
+<div class="brush-transition" aria-hidden="true">
+  <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,26 C140,16 320,34 540,24 C740,14 940,30 1120,20 C1260,12 1360,26 1440,22 L1440,52 L0,52 Z" fill="var(--beige)"/>
+  </svg>
+</div>
+
+<!-- ============ ELEMENTS, directly below hero ============ -->
+<section class="section elements" id="elements">
+  <div class="elements-split">
+
+    <div class="elements-left" data-reveal>
+      <span class="section-eyebrow">The System</span>
+      <h2 class="section-title"><span class="en-only">Five Elements</span><span class="cn-only">五行</span></h2>
+      <div class="elements-subtitle">
+        <span class="cn-only">
+          <p>身为长期深耕灵学的修行者，深知一切情绪烦扰、气场杂乱，皆源于金、木、水、火、土五行能量的失衡。</p>
+          <p>银河星际之光与五行能量同频共振，默默塑造着我们的心绪、气场与人生旅程。我为每一种元素都用心甄选了一系列富有意义的灵石，若你已知道自己与哪一元素共鸣，它们已为你备好。</p>
+        </span>
+        <span class="en-only">
+          <p>Five systems of energy, moving through the body, through the seasons, through a life. When the balance shifts, you feel it.</p>
+          <p>One element is always asking for attention. Choose the one that resonates, or let a reading find it for you.</p>
+        </span>
+      </div>
+    </div>
+
+    <div class="elements-right">
+      <div class="elements-circle">
+        <svg class="elements-connector" viewBox="0 0 620 620" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+          <path d="M310,110 L500,248 L428,472 L192,472 L120,248 Z" />
+        </svg>
+        <a class="element-card" href="collections/fire.html" style="--ec: var(--fire);">
+          <div class="element-card-circle">
+            <span class="element-char">火</span>
+            <span class="element-en-inner">Fire</span>
+          </div>
+        </a>
+        <a class="element-card" href="collections/earth.html" style="--ec: var(--earth);">
+          <div class="element-card-circle">
+            <span class="element-char">土</span>
+            <span class="element-en-inner">Earth</span>
+          </div>
+        </a>
+        <a class="element-card" href="collections/metal.html" style="--ec: var(--metal);">
+          <div class="element-card-circle">
+            <span class="element-char">金</span>
+            <span class="element-en-inner">Metal</span>
+          </div>
+        </a>
+        <a class="element-card" href="collections/water.html" style="--ec: var(--water);">
+          <div class="element-card-circle">
+            <span class="element-char">水</span>
+            <span class="element-en-inner">Water</span>
+          </div>
+        </a>
+        <a class="element-card" href="collections/wood.html" style="--ec: var(--wood);">
+          <div class="element-card-circle">
+            <span class="element-char">木</span>
+            <span class="element-en-inner">Wood</span>
+          </div>
+        </a>
+        <div class="elements-bg-circle">
+          <img class="elements-bg-img" alt="">
+          <div class="elements-bg-hint">
+            <span class="cn-only">选择元素查看产品</span>
+            <span class="en-only">Select an element<br>to see products</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<script>
+(function() {
+  const bgImg  = document.querySelector('.elements-bg-img');
+  const hint   = document.querySelector('.elements-bg-hint');
+  document.querySelectorAll('.element-card').forEach(card => {
+    const element = card.getAttribute('href').match(/collections\/(\w+)\.html/)?.[1];
+    if (!element) return;
+    const ext = ['metal','water','wood'].includes(element) ? 'PNG' : 'png';
+    const src = 'images/' + element + '.' + ext;
+    card.addEventListener('mouseenter', () => {
+      if (bgImg.getAttribute('src') !== src) bgImg.src = src;
+      bgImg.classList.add('visible');
+      hint.classList.add('hidden');
+    });
+    card.addEventListener('mouseleave', () => {
+      bgImg.classList.remove('visible');
+      hint.classList.remove('hidden');
+      // Keep the image loaded (just faded out), clearing src on transitionend
+      // caused it to vanish mid-hover when moving between elements.
+    });
+  });
+})();
+</script>
+
+<!-- ============ STATEMENT BAND ============ -->
+<section class="band band-quote">
+  <p class="band-quote-text" data-reveal>When you lose something, or when something new arrives, there is a stone that has already been prayed for, waiting to be with you.</p>
+</section>
+
+<!-- ============ DISCOVER ============ -->
+<section class="section discover" id="discover">
+  <div class="discover-split">
+    <div class="discover-left" data-reveal>
+      <span class="section-eyebrow">The Test</span>
+      <h2 class="section-title"><span class="en-only">Find Your Element</span><span class="cn-only">寻找你的元素</span></h2>
+      <p class="discover-text">
+        <span class="cn-only">说不清哪里不对劲？回答几个简短的问题，发现你的能量正在呼唤五行中的哪一种，以及哪一枚灵石能帮你重归平衡。</span>
+        <span class="en-only">Something feels off, and you can't quite name it? Answer a few short questions and discover which of the Five Elements your energy is calling for, and the stone that can help restore the balance.</span>
+      </p>
+      <div class="discover-actions">
+        <a href="/ai-test.html" class="discover-btn-primary">
+          <span class="cn-only">测算我的元素</span>
+          <span class="en-only">Start your discovery</span>
+        </a>
+      </div>
+    </div>
+    <div class="discover-right" data-reveal data-delay="1">
+      <img src="images/practitioner-seated.jpg" alt="A practitioner with wrist beads" class="discover-img" loading="lazy" decoding="async">
+    </div>
   </div>
 </section>
 
-<!-- ============ 第 2 屏 STORY ============ -->
-<section class="section story" id="story">
-  <div class="section-tag" data-reveal>
-    <span class="cn-only">品牌故事</span>
-    <span class="en-only">Story</span>
+<!-- ============ FEATURED PRODUCTS ============ -->
+<section class="section featured" id="featured">
+  <div class="featured-header" data-reveal>
+    <span class="section-eyebrow">The Collection</span>
+      <h2 class="section-title"><span class="en-only">Featured Stones</span><span class="cn-only">精选灵石</span></h2>
   </div>
-  <h2 class="section-title" data-reveal data-delay="1">Our Story</h2>
-  <div class="section-title-cn cn-only" data-reveal data-delay="2">我们的故事</div>
+  <div class="featured-grid" data-shopify-featured data-shopify-limit="4">
+    <p class="catalog-empty"><span class="en-only">Loading…</span><span class="cn-only">加载中…</span></p>
+  </div>
+</section>
 
-  <!-- 品牌缘起 -->
+<!-- ============ FULL-BLEED IMAGE ============ -->
+<section class="band band-video" aria-hidden="true">
+  <video autoplay muted loop playsinline poster="images/full-bleed-hands.jpg">
+    <source src="images/1899.MP4" type="video/mp4">
+  </video>
+</section>
+
+<!-- ============ BLESSING BAND ============ -->
+<section class="band band-blessing">
+  <div class="blessing-inner" data-reveal>
+    <img class="blessing-card" src="/images/blessing-card.jpeg" alt="Putuo Mountain blessing card, gold-engraved Guanyin" loading="lazy" decoding="async">
+    <div class="blessing-copy">
+      <span class="section-eyebrow">The Blessing</span>
+      <h2 class="band-title">Before this stone reaches you, it goes somewhere holy.</h2>
+      <p class="band-sub">Every piece travels to Putuo Mountain, the earthly home of Guanyin, for the monthly blessing ceremony. Each order includes a personal certificate with your name and the date it was carried to the mountain.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONSULTATION SERVICE ============ -->
+<section class="section consultation" id="consultation">
+  <div class="consultation-inner" data-reveal>
+    <span class="consultation-mark" aria-hidden="true">
+      <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round">
+        <line x1="80" y1="20" x2="80" y2="100"/><line x1="96.91" y1="23.75" x2="63.09" y2="96.25"/>
+        <line x1="63.09" y1="23.75" x2="96.91" y2="96.25"/><circle cx="80" cy="138" r="20"/>
+      </svg>
+    </span>
+      <h2 class="section-title consultation-title"><span class="en-only">Noah Elements Bespoke Service</span><span class="cn-only">尊享定制</span></h2>
+    <p class="consultation-text">
+      <span class="en-only">Your element is not a personality type, it is where you are right now. A Ba Zi reading of your birth chart identifies where the imbalance actually is, then selects a stone for that. Not for who you always are. For who you are in this chapter.</span>
+      <span class="cn-only">你的元素不是一种性格类型，而是你此刻所在的位置。八字解读会找出你当下真正的失衡所在，再为之甄选灵石，不为你一贯的样子，只为此刻的你。</span>
+    </p>
+    <a href="/custom.html" class="btn-primary consultation-cta">
+      <span class="en-only">Book consultation</span><span class="cn-only">预约咨询</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section class="section story" id="story">
+  <h2 class="section-title" data-reveal><span class="en-only">My Story</span><span class="cn-only">我的故事</span></h2>
+
   <div class="story-narrative" id="story-founder" data-reveal>
-    <span class="narrative-mark"></span>
     <div class="cn-only">
       <p>Noah 源自希伯来古语，寓意安宁、慰藉、庇护与心安。</p>
-      <p>2025 年，历经一场深刻生命轮回——爱子诺亚降生，至亲父亲安然远行。一生一逝，体悟世间因缘流转与能量循环，这段人生感悟，成就了 Noah Elements 品牌的诞生。</p>
-      <p>Noah Elements 不止是一个手工天然灵石品牌，更是一种轻奢灵性治愈的生活方式——陪伴每一位同频之人疗愈情绪、修复磁场，与星河同频、与五行共生，安然前行。</p>
+      <p>2025 年，历经一场深刻生命轮回，爱子诺亚降生，至亲父亲安然远行。一生一逝，体悟世间因缘流转与能量循环，这段人生感悟，成就了 Noah Elements 品牌的诞生。</p>
+      <p>Noah Elements 不止是一个手工天然灵石品牌，更是一种轻奢灵性治愈的生活方式，陪伴每一位同频之人疗愈情绪、修复磁场，与星河同频、与五行共生，安然前行。</p>
     </div>
     <div class="en-only">
-      <p>Noah originates from ancient Hebrew, meaning rest, comfort, peace and divine shelter.</p>
-      <p>In 2025, life unfolded a profound cycle of fate — my son Noah was born into life, while my father passed away gently. Through new life and farewell, I came to understand the cycle of life and energy. This journey became the origin of Noah Elements.</p>
-      <p>Noah Elements is more than a handcrafted natural stone brand — it is a quiet, luxurious spiritual lifestyle, accompanying those in resonance to heal emotion and restore aura, in harmony with the cosmos and the Five Elements.</p>
+      <p>I have studied the Five Elements since I was a child. My father taught me, the way his father taught him. Not as theory, but as a living practice: how to read a constitution, and sense what a person is missing before they can name it.</p>
+      <p>In 2025, within the same season, I lost my father and welcomed my son. Before he passed, he told me: “What you know isn't for making yourself feel better. It's for giving others something to lean on.”</p>
+      <p>So I went to Putuo Mountain. I brought stones, and asked Guanyin to bless them for people standing at a crossroads. I named the brand Noah, my son's name. In Hebrew, it means rest, comfort, shelter. That is what I want to give you.</p>
     </div>
-  </div>
-
-</section>
-
-<!-- ============ 第 3 屏 PRACTICE 修行初心 ============ -->
-<section class="section practice" id="practice">
-  <div class="section-tag" data-reveal>
-    <span class="cn-only">修行初心</span>
-    <span class="en-only">Practice</span>
-  </div>
-  <h2 class="section-title" data-reveal data-delay="1">Practice &amp; Vision</h2>
-  <div class="section-title-cn cn-only" data-reveal data-delay="2">修行初心</div>
-
-  <div class="story-narrative" data-reveal data-delay="2">
-    <span class="narrative-mark"></span>
-    <div class="cn-only">
-      <p>身为长期深耕灵学的修行者，深知一切情绪烦扰、气场杂乱，皆源于五行能量失衡。</p>
-      <p>银河星际之光与天地五行能量同频共振，默默影响着每个人的身心磁场与人生状态。</p>
-    </div>
-    <div class="en-only">
-      <p>As a lifelong spiritual practitioner, I deeply understand that all emotional restlessness and aura imbalance arise from the disharmony of Metal, Wood, Water, Fire and Earth.</p>
-      <p>Cosmic starlight and the Five Elements resonate as one — quietly shaping our mood, our aura, and the journey of life.</p>
+    <div class="story-cta" data-reveal>
+      <a href="/our-story.html" class="btn-secondary"><span class="en-only">Read more</span><span class="cn-only">了解更多</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============ 第 4 屏 ELEMENTS 天然能量石 + 普陀山加持 ============ -->
-<section class="section elements" id="elements">
-  <div class="section-tag" data-reveal>
-    <span class="cn-only">天然能量石</span>
-    <span class="en-only">Sacred Stones</span>
-  </div>
-  <h2 class="section-title" data-reveal data-delay="1">Stones &amp; Blessing</h2>
-  <div class="section-title-cn cn-only" data-reveal data-delay="2">灵石加持</div>
 
-  <p class="elements-intro" data-reveal data-delay="2">
-    <span class="cn-only">严选各类天然矿石、玛瑙与灵性能量原石，每一块灵石皆自带宇宙频率与五行属性。以修行之心诚心祈福，所有灵石皆承载普陀山观音圣地清净能量加持，调和五行、净化磁场，予人平安顺遂、福佑护身。</span>
-    <span class="en-only">We select high-quality natural stones, agates and spiritual minerals — each piece carrying its own cosmic frequency and Five Elements properties. Blessed with the pure holy energy of Mount Putuo, every stone helps balance your elements, purify your aura, and bring lasting peace and protection.</span>
-  </p>
-
-  <!-- 五行符号 -->
-  <div class="elements-symbols">
-    <div class="symbol-item" data-reveal data-delay="1" style="color: var(--fire);">
-      <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="28" cy="28" r="22" stroke-width="0.6" opacity="0.5"/>
-        <path d="M28 14 L20 32 L28 42 L36 32 Z"/>
-        <path d="M28 22 L24 32" stroke-width="0.5"/>
-      </svg>
-      <div class="sym-name-en">Fire</div>
-      <div class="sym-name-cn cn-only">火</div>
-    </div>
-    <div class="symbol-item" data-reveal data-delay="2" style="color: var(--earth);">
-      <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <circle cx="28" cy="28" r="22" stroke-width="0.6" opacity="0.5"/>
-        <rect x="18" y="18" width="20" height="20"/>
-        <line x1="28" y1="14" x2="28" y2="42" stroke-width="0.5" opacity="0.6"/>
-      </svg>
-      <div class="sym-name-en">Earth</div>
-      <div class="sym-name-cn cn-only">土</div>
-    </div>
-    <div class="symbol-item" data-reveal data-delay="3" style="color: var(--metal);">
-      <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <circle cx="28" cy="28" r="22" stroke-width="0.6" opacity="0.5"/>
-        <circle cx="28" cy="28" r="9"/>
-        <circle cx="28" cy="28" r="2.5" fill="currentColor"/>
-      </svg>
-      <div class="sym-name-en">Metal</div>
-      <div class="sym-name-cn cn-only">金</div>
-    </div>
-    <div class="symbol-item" data-reveal data-delay="4" style="color: var(--water);">
-      <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <circle cx="28" cy="28" r="22" stroke-width="0.6" opacity="0.5"/>
-        <path d="M14 24 Q19 18 24 24 T34 24 T42 24"/>
-        <path d="M14 32 Q19 26 24 32 T34 32 T42 32"/>
-      </svg>
-      <div class="sym-name-en">Water</div>
-      <div class="sym-name-cn cn-only">水</div>
-    </div>
-    <div class="symbol-item" data-reveal data-delay="5" style="color: var(--wood);">
-      <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <circle cx="28" cy="28" r="22" stroke-width="0.6" opacity="0.5"/>
-        <line x1="28" y1="14" x2="28" y2="42"/>
-        <path d="M28 22 L20 18 M28 22 L36 18 M28 30 L20 26 M28 30 L36 26"/>
-      </svg>
-      <div class="sym-name-en">Wood</div>
-      <div class="sym-name-cn cn-only">木</div>
-    </div>
-  </div>
-
-  <!-- 普陀山祈福 -->
-  <div class="blessing" id="elements-blessing" data-reveal>
-    <div class="blessing-tag">
-      <span class="cn-only">— 圣地祈福 —</span>
-      <span class="en-only">— Sacred Blessing —</span>
-    </div>
-    <h3 class="blessing-title">Putuo Mountain</h3>
-    <div class="blessing-title-cn">普陀山祈福加持</div>
-    <p class="blessing-text">
-      <span class="cn-only">普陀山素有海天佛国之称，是观音菩萨清净祈福圣地，灵气绵长、福运祥和。本店所有手工成品与私人定制晶石作品，都会统一送往普陀山进行祈福加持。</span>
-      <span class="en-only">Putuo Mountain is the sacred spiritual seat of Guanyin (Goddess of Compassion), revered for its enduring peace and positive energy. Every crystal from our store — handcrafted or custom-designed — is sent to Putuo Mountain for ceremonial blessing.</span>
-    </p>
-    <div class="blessing-cert">
-      <span class="cn-only">每一笔订单 · 附赠电子版祈福证书</span>
-      <span class="en-only">Each order includes an electronic blessing certificate</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 第 5 屏 FINALE ============ -->
-<section class="section finale" id="custom">
-  <div class="section-tag" data-reveal style="color: var(--khaki);">
-    <span class="cn-only">服务与定制</span>
-    <span class="en-only">Service &amp; Custom</span>
-  </div>
-  <h2 class="section-title" data-reveal data-delay="1" style="color: var(--beige);">Choose Your Path</h2>
-  <div class="section-title-cn cn-only" data-reveal data-delay="2" style="color: var(--khaki);">两种方式 · 与晶石相遇</div>
-
-  <div class="finale-services">
-    <div class="service-block" id="service-ai" data-reveal data-delay="1">
-      <div class="service-tag">
-        <span class="cn-only">免费工具</span>
-        <span class="en-only">Free Tool</span>
-      </div>
-      <h3 class="service-title">AI Test</h3>
-      <div class="service-title-cn">五行 AI 自测</div>
-      <p class="service-desc">
-        <span class="cn-only">网站内置免费五行 AI 自测工具，仅作基础简易参考。快速了解自身五行盈亏、能量状态与适配色系，方便选购店内各类五行手工成品。</span>
-        <span class="en-only">A complimentary Five Elements AI test, for basic reference. Discover your elemental balance, energy state and the colors that resonate with you — a guide for choosing the right crystal.</span>
-      </p>
-      <a href="ai-test.html" class="service-cta">
-        <span class="cn-only">立即测试</span>
-        <span class="en-only">Take the Test</span>
-      </a>
-    </div>
-
-    <div class="divider-v"></div>
-
-    <div class="service-block" id="service-custom" data-reveal data-delay="3">
-      <div class="service-tag">
-        <span class="cn-only">深度服务</span>
-        <span class="en-only">In-Depth Service</span>
-      </div>
-      <h3 class="service-title">Custom</h3>
-      <div class="service-title-cn">一对一高端命理定制</div>
-      <p class="service-desc">
-        <span class="cn-only">根据生辰信息，全盘解析八字格局、五行强弱与个人运势，依照当下生活状态与心性，量身搭配专属晶石组合。一人一命，一物定制。</span>
-        <span class="en-only">Based on your birth chart, we map your Five Elements composition and personal fortune, then craft an exclusive crystal combination tailored to your life and energy. One destiny, one creation.</span>
-      </p>
-      <a href="custom.html" class="service-cta">
-        <span class="cn-only">了解定制</span>
-        <span class="en-only">Learn More</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- 品牌祝愿 -->
-  <div class="closing">
-    <div class="closing-mark" data-reveal></div>
-    <div class="closing-text" data-reveal data-delay="1">
-      <div class="cn-only">
-        <p>人生本是新生与离别的轮回，星河长明不息，五行流转生生不息。</p>
-        <p style="margin-top: 22px;">愿宇宙星光抚慰内心所有起伏，愿五行之力护你人生路途安稳，愿普陀山清净福念常伴左右——往后岁月，心安无恙，岁岁从容。</p>
-      </div>
-      <div class="en-only">
-        <p>Life is a cycle of farewell and new birth — starlight flows endlessly, the Five Elements circulate forever.</p>
-        <p style="margin-top: 22px;">May cosmic light calm your heart, the Five Elements steady your journey, and the holy blessing of Mount Putuo guard you always — peaceful and calm in all the days to come.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ Footer ============ -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="footer-brand-mark">
-        <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+        <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round">
           <line x1="80" y1="20" x2="80" y2="100"/>
           <line x1="96.91" y1="23.75" x2="63.09" y2="96.25"/>
           <line x1="63.09" y1="23.75" x2="96.91" y2="96.25"/>
@@ -304,58 +299,51 @@
       </div>
       <p class="footer-brand-tagline">
         <span class="cn-only">五行能量灵性晶石<br>手工制作 · 普陀山祈福加持</span>
-        <span class="en-only">Five Elements Spiritual Crystals<br>Handcrafted · Blessed at Putuo Mountain</span>
+        <span class="en-only">Five Elements Spiritual Stones<br>Handcrafted · Blessed at Putuo Mountain</span>
       </p>
     </div>
 
     <div class="footer-col">
-      <h4><span class="cn-only">探索</span><span class="en-only">Explore</span></h4>
+      <h4><span class="cn-only">五行</span><span class="en-only">Elements</span></h4>
       <ul>
-        <li class="cn"><a href="#story" class="cn-only">品牌故事</a><a href="#story" class="en-only">Story</a></li>
-        <li class="cn"><a href="#elements" class="cn-only">五行能量</a><a href="#elements" class="en-only">Five Elements</a></li>
-        <li class="cn"><a href="#collections" class="cn-only">五行晶石</a><a href="#collections" class="en-only">Collections</a></li>
+        <li class="cn"><a href="/collections/fire.html" class="cn-only">火 · 火元素</a><a href="/collections/fire.html" class="en-only">Fire</a></li>
+        <li class="cn"><a href="/collections/earth.html" class="cn-only">土 · 土元素</a><a href="/collections/earth.html" class="en-only">Earth</a></li>
+        <li class="cn"><a href="/collections/metal.html" class="cn-only">金 · 金元素</a><a href="/collections/metal.html" class="en-only">Metal</a></li>
+        <li class="cn"><a href="/collections/water.html" class="cn-only">水 · 水元素</a><a href="/collections/water.html" class="en-only">Water</a></li>
+        <li class="cn"><a href="/collections/wood.html" class="cn-only">木 · 木元素</a><a href="/collections/wood.html" class="en-only">Wood</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h4><span class="cn-only">服务</span><span class="en-only">Service</span></h4>
+      <h4><span class="cn-only">探索</span><span class="en-only">Discover</span></h4>
       <ul>
-        <li class="cn"><a href="ai-test.html" class="cn-only">AI 五行自测</a><a href="ai-test.html" class="en-only">AI Test</a></li>
-        <li class="cn"><a href="custom.html" class="cn-only">高端命理定制</a><a href="custom.html" class="en-only">Custom Service</a></li>
-        <li class="cn"><a href="#" class="cn-only">祈福证书</a><a href="#" class="en-only">Blessing Certificate</a></li>
+        <li class="cn"><a href="/ai-test.html" class="cn-only">寻找你的元素</a><a href="/ai-test.html" class="en-only">Find Your Element</a></li>
+        <li class="cn"><a href="/custom.html" class="cn-only">定制解读</a><a href="/custom.html" class="en-only">Custom Reading</a></li>
+        <li class="cn"><a href="/the-practice.html" class="cn-only">五行之道</a><a href="/the-practice.html" class="en-only">The Practice</a></li>
+        <li class="cn"><a href="/our-story.html" class="cn-only">我们的故事</a><a href="/our-story.html" class="en-only">Our Story</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h4><span class="cn-only">联络</span><span class="en-only">Contact</span></h4>
+      <h4><span class="cn-only">支持</span><span class="en-only">Support</span></h4>
       <ul>
-        <li class="cn"><span class="cn-only">客服微信　hello@</span><span class="en-only">WeChat: hello@</span></li>
-        <li class="cn"><span class="cn-only">邮箱　care@noahsuniverse.com</span><span class="en-only">care@noahsuniverse.com</span></li>
-        <li class="cn"><span class="cn-only">小红书　@诺亚宇宙</span><span class="en-only">Instagram @noahsuniverse</span></li>
+        <li class="cn"><a href="/faq.html" class="cn-only">常见问题</a><a href="/faq.html" class="en-only">FAQ</a></li>
+        <li class="cn"><a href="/shipping.html" class="cn-only">配送</a><a href="/shipping.html" class="en-only">Shipping</a></li>
+        <li class="cn"><a href="/returns.html" class="cn-only">退换货</a><a href="/returns.html" class="en-only">Returns</a></li>
+        <li class="cn"><a href="/contact.html" class="cn-only">联系我们</a><a href="/contact.html" class="en-only">Contact</a></li>
+        <li class="cn"><a href="/privacy.html" class="cn-only">隐私与 Cookie</a><a href="/privacy.html" class="en-only">Privacy & Cookies</a></li>
       </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <div>© 2026 Noah Elements. <span class="cn-only">保留所有权利</span><span class="en-only">All rights reserved.</span></div>
+    <div>© 2026 Noah Elements.</div>
     <div class="footer-social">
-      <a href="#" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <a class="footer-social-icon footer-social-ig" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
           <rect x="3" y="3" width="18" height="18" rx="5"/>
           <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/>
-        </svg>
-      </a>
-      <a href="#" aria-label="Xiaohongshu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M5 7 L5 17 M5 12 L11 7 M5 12 L11 17"/>
-          <path d="M14 7 L14 17 M14 7 L20 7 M14 12 L19 12 M14 17 L20 17"/>
-        </svg>
-      </a>
-      <a href="#" aria-label="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="3" y="5" width="18" height="14" rx="1"/>
-          <path d="M3 7 L12 13 L21 7"/>
+          <circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/>
         </svg>
       </a>
     </div>
@@ -373,27 +361,15 @@
   // ===== 双语切换 =====
   const toggleBtn = document.getElementById('langToggle');
   const body = document.body;
-  toggleBtn.addEventListener('click', () => {
-    const opts = toggleBtn.querySelectorAll('.opt');
-    if (body.classList.contains('lang-zh')) {
-      body.classList.replace('lang-zh', 'lang-en');
-      document.documentElement.setAttribute('lang', 'en');
-    } else {
-      body.classList.replace('lang-en', 'lang-zh');
-      document.documentElement.setAttribute('lang', 'zh');
-    }
-    opts.forEach(o => o.classList.toggle('active'));
-  });
+  
 
-  // ===== 滚动 nav 变化 + 返回顶部按钮 =====
-  const nav = document.getElementById('nav');
+  // ===== Back-to-top button (nav transparency is handled in lang.js) =====
   const toTop = document.getElementById('toTop');
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (!ticking) {
       window.requestAnimationFrame(() => {
         const y = window.scrollY;
-        if (y > 80) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
         if (y > 600) toTop.classList.add('visible'); else toTop.classList.remove('visible');
         ticking = false;
       });
@@ -415,5 +391,83 @@
   revealEls.forEach(el => observer.observe(el));
 </script>
 
+<script>
+// ===== Subtle scroll parallax + Five Elements reveal =====
+(function() {
+  const heroBg         = document.querySelector('.hero-bg');
+  const discoverImg    = document.querySelector('.discover-img');
+  const elementsCircle = document.querySelector('.elements-circle');
+  const cards          = elementsCircle ? Array.from(elementsCircle.querySelectorAll('.element-card')) : [];
+  const connector      = document.querySelector('.elements-connector path');
+  const reduceMotion   = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let pending = false;
+  let connLen = 0;
+
+  // Arm the reveal: hide cards and prime the connecting line.
+  if (elementsCircle && cards.length && !reduceMotion) {
+    elementsCircle.classList.add('anim-ready');
+    if (connector) {
+      connLen = connector.getTotalLength();
+      connector.style.strokeDasharray = connLen;
+      connector.style.strokeDashoffset = connLen;
+    }
+  } else if (connector) {
+    // Reduced motion: show the finished state.
+    connector.style.strokeDasharray = 'none';
+    connector.style.strokeDashoffset = 0;
+  }
+
+  function clamp01(n) { return n < 0 ? 0 : n > 1 ? 1 : n; }
+
+  function revealElements() {
+    if (!elementsCircle || !cards.length || reduceMotion) return;
+    const rect = elementsCircle.getBoundingClientRect();
+    const vh = window.innerHeight;
+    // Progress: 0 when the map's top sits low in the viewport, 1 once it has
+    // risen to the upper third, i.e. as the user scrolls the map up the page.
+    const start = vh * 0.92;
+    const end   = vh * 0.28;
+    const p = clamp01((start - rect.top) / (start - end));
+
+    // Cards appear one by one over the first ~62% of the progress.
+    const span = 0.62;
+    const n = cards.length;
+    for (let i = 0; i < n; i++) {
+      const s = (i / n) * span;
+      const e = s + span / n;
+      cards[i].style.opacity = clamp01((p - s) / (e - s)).toFixed(3);
+    }
+
+    // Once the circles are in, the connecting line draws from start to end.
+    if (connector) {
+      const lp = clamp01((p - 0.6) / 0.38);
+      connector.style.strokeDashoffset = (connLen * (1 - lp)).toFixed(1);
+    }
+  }
+
+  function tick() {
+    // Image parallax removed, only the Five Elements map still animates.
+    revealElements();
+    pending = false;
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!pending) { pending = true; requestAnimationFrame(tick); }
+  }, { passive: true });
+  window.addEventListener('resize', function() {
+    if (!pending) { pending = true; requestAnimationFrame(tick); }
+  }, { passive: true });
+
+  // Initial paint (covers the case where the map is already in view on load).
+  requestAnimationFrame(tick);
+})();
+</script>
+
+<script src="js/lang.js"></script>
+<script src="js/shopify.js"></script>
+<script src="js/catalog.js"></script>
+<script src="/js/tilt.js" defer></script>
+<script src="/js/currency.js"></script>
+<script src="/js/cookies.js"></script>
 </body>
 </html>

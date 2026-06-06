@@ -4,19 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>火 Fire · Noah Elements</title>
-<meta name="description" content="火系列 — 温暖、激情，点燃内在生命力。Noah Elements 天然能量石.">
+<meta name="description" content="火系列，温暖、激情，点燃内在生命力。Noah Elements 天然能量石.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../css/fire.css">
+<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="../css/nav.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Noah Elements">
+<meta property="og:title" content="火 Fire · Noah Elements">
+<meta property="og:description" content="火系列，温暖、激情，点燃内在生命力。Noah Elements 天然能量石.">
+<meta property="og:image" content="/images/hero-opt.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="火 Fire · Noah Elements">
+<meta name="twitter:description" content="火系列，温暖、激情，点燃内在生命力。Noah Elements 天然能量石.">
+<meta name="twitter:image" content="/images/hero-opt.jpg">
+<link rel="canonical" href="">
+<script src="/js/seo.js" defer></script>
 </head>
-<body class="lang-zh">
+<body class="lang-en">
 
 <!-- 顶部导航 -->
 <nav class="nav">
-  <a href="../index.html" class="nav-brand">
-    <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+  <div class="nav-left">
+    <button class="nav-menu-btn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-label="Menu">
+      <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      <span class="nav-menu-label"><span class="cn-only">菜单</span><span class="en-only">Menu</span></span>
+    </button>
+    <div class="nav-menu-panel" id="menuPanel" role="menu">
+      <span class="nav-menu-panel-head"><span class="cn-only">五行灵石</span><span class="en-only">The Five Elements</span></span>
+      <a href="/collections/wood.html" role="menuitem"><span class="cn-only">木 · Wood</span><span class="en-only">Wood · Origin</span></a>
+      <a href="/collections/fire.html" role="menuitem"><span class="cn-only">火 · Fire</span><span class="en-only">Fire · Embers</span></a>
+      <a href="/collections/earth.html" role="menuitem"><span class="cn-only">土 · Earth</span><span class="en-only">Earth · Roots</span></a>
+      <a href="/collections/metal.html" role="menuitem"><span class="cn-only">金 · Metal</span><span class="en-only">Metal · Endure</span></a>
+      <a href="/collections/water.html" role="menuitem"><span class="cn-only">水 · Water</span><span class="en-only">Water · Still</span></a>
+      <span class="nav-menu-panel-head nav-menu-panel-head-2"><span class="cn-only">了解</span><span class="en-only">Explore</span></span>
+      <a href="/custom.html" role="menuitem"><span class="cn-only">定制解读</span><span class="en-only">Custom Reading</span></a>
+      <a href="/the-practice.html" role="menuitem"><span class="cn-only">五行之道</span><span class="en-only">The Practice</span></a>
+      <a href="/our-story.html" role="menuitem"><span class="cn-only">我们的故事</span><span class="en-only">Our Story</span></a>
+    </div>
+  </div>
+
+  <a href="/index.html" class="nav-brand">
+    <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round">
       <line x1="80" y1="20" x2="80" y2="100"/>
       <line x1="96.91" y1="23.75" x2="63.09" y2="96.25"/>
       <line x1="63.09" y1="23.75" x2="96.91" y2="96.25"/>
@@ -25,209 +57,100 @@
     <span class="nav-brand-name">Noah Elements</span>
   </a>
 
-  <div style="display: flex; align-items: center; gap: 32px;">
-    <a href="../index.html" class="nav-back">
-      <span class="cn-only">返回首页</span>
-      <span class="en-only">Back</span>
-    </a>
-    <button class="lang-toggle" id="langToggle">
-      <span class="opt active" data-lang="zh">中</span>
-      <span class="sep">/</span>
-      <span class="opt" data-lang="en">EN</span>
+  <div class="nav-actions">
+    <button class="cart-trigger" aria-label="Cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6 5 3H2"/></svg>
+      <span class="cart-count">0</span>
     </button>
   </div>
 </nav>
 
-<!-- Hero 系列大头 -->
+<!-- Element intro -->
 <section class="page-hero">
-  <div class="page-hero-tag">
-    <span class="cn-only">五行系列</span>
-    <span class="en-only">Five Elements Series</span>
-  </div>
-
-  <div class="page-hero-symbol">
-    <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M40 14 L24 50 L40 66 L56 50 Z"/>
-      <path d="M40 26 L34 50" stroke-width="0.6"/>
-    </svg>
-  </div>
-
-  <h1 class="page-hero-title">Fire</h1>
-  <div class="page-hero-cn">火</div>
-
-  <div class="page-hero-divider"></div>
-
-  <p class="page-hero-desc">
-    <span class="cn-only">温暖、激情，点燃内在生命力——燃起向前的勇气，唤醒沉睡的热情，照亮你的每一段旅途。</span>
-    <span class="en-only">Warmth and passion that ignite your inner vitality — kindling the courage to move forward, awakening dormant fire, illuminating every step of your journey.</span>
-  </p>
+  <canvas class="hero-particles" data-element="fire" aria-hidden="true"></canvas>
+  <h1 class="page-hero-title" data-reveal data-delay="1"><span class="en-only">Fire · Embers</span><span class="cn-only">火 · 余烬</span></h1>
+  <div class="page-hero-cn" data-reveal data-delay="2">火系列 · 手作灵石</div>
+  <p class="page-hero-desc" data-reveal data-delay="3"><span class="cn-only">火之余烬。献给曾熊熊燃烧、正学着信任余温的人。火，主宰一切转化，以及燃烧之后留存的东西。</span><span class="en-only">Burning Through. For those who burned bright and are learning to trust the ember that remains. Fire governs what transforms us, and what remains after the burn.</span></p>
 </section>
 
 <!-- 产品网格 -->
 <section class="products">
-  <div class="products-header">
-    <div class="products-tag" data-reveal>
-      <span class="cn-only">手工成品</span>
-      <span class="en-only">Handcrafted</span>
-    </div>
-    <h2 class="products-title" data-reveal data-delay="1">Fire Collection</h2>
-    <div class="products-title-cn" data-reveal data-delay="2">火系列 · 手作灵石</div>
-  </div>
 
-  <div class="product-grid">
-    <a href="#" class="product-card" data-reveal data-delay="1">
-      <div class="product-image">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="40" cy="40" r="20"/>
-          <circle cx="40" cy="40" r="14"/>
-          <circle cx="40" cy="40" r="8"/>
-        </svg>
-      </div>
-      <div class="product-info">
-        <div class="product-name">Cinnabar Strand</div>
-        <div class="product-name-cn">朱砂手串</div>
-        <div class="product-meta">
-          <span class="cn-only">天然朱砂 · 安神护身</span>
-          <span class="en-only">Natural cinnabar · Calming protection</span>
-        </div>
-        <div class="product-price">¥ 1,280</div>
-      </div>
-    </a>
-
-    <a href="#" class="product-card" data-reveal data-delay="2">
-      <div class="product-image">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round">
-          <path d="M40 18 L24 56 L40 64 L56 56 Z"/>
-          <line x1="40" y1="30" x2="40" y2="56" stroke-width="0.5"/>
-        </svg>
-      </div>
-      <div class="product-info">
-        <div class="product-name">Red Agate Pendant</div>
-        <div class="product-name-cn">红玛瑙吊坠</div>
-        <div class="product-meta">
-          <span class="cn-only">南红玛瑙 · 招财聚气</span>
-          <span class="en-only">Red agate · Wealth and energy</span>
-        </div>
-        <div class="product-price">¥ 1,580</div>
-      </div>
-    </a>
-
-    <a href="#" class="product-card" data-reveal data-delay="3">
-      <div class="product-image">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round">
-          <ellipse cx="40" cy="40" rx="22" ry="14"/>
-          <ellipse cx="40" cy="40" rx="22" ry="14" transform="rotate(60 40 40)"/>
-          <ellipse cx="40" cy="40" rx="22" ry="14" transform="rotate(120 40 40)"/>
-        </svg>
-      </div>
-      <div class="product-info">
-        <div class="product-name">Garnet Bracelet</div>
-        <div class="product-name-cn">石榴石手链</div>
-        <div class="product-meta">
-          <span class="cn-only">天然石榴石 · 旺血气</span>
-          <span class="en-only">Natural garnet · Vital energy</span>
-        </div>
-        <div class="product-price">¥ 980</div>
-      </div>
-    </a>
-
-    <a href="#" class="product-card" data-reveal data-delay="1">
-      <div class="product-image">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round">
-          <rect x="22" y="22" width="36" height="36" transform="rotate(45 40 40)"/>
-        </svg>
-      </div>
-      <div class="product-info">
-        <div class="product-name">Sun Stone Earrings</div>
-        <div class="product-name-cn">太阳石耳饰</div>
-        <div class="product-meta">
-          <span class="cn-only">天然太阳石 · 提升能量</span>
-          <span class="en-only">Sunstone · Lift your energy</span>
-        </div>
-        <div class="product-price">¥ 760</div>
-      </div>
-    </a>
-
-    <a href="#" class="product-card" data-reveal data-delay="2">
-      <div class="product-image">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round">
-          <path d="M20 40 Q40 20 60 40 Q40 60 20 40"/>
-        </svg>
-      </div>
-      <div class="product-info">
-        <div class="product-name">Carnelian Ring</div>
-        <div class="product-name-cn">红玉髓戒指</div>
-        <div class="product-meta">
-          <span class="cn-only">天然红玉髓 · 守护勇气</span>
-          <span class="en-only">Carnelian · Guardian of courage</span>
-        </div>
-        <div class="product-price">¥ 880</div>
-      </div>
-    </a>
-
-    <a href="#" class="product-card" data-reveal data-delay="3">
-      <div class="product-image">
-        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round">
-          <circle cx="30" cy="40" r="10"/>
-          <circle cx="50" cy="40" r="10"/>
-          <circle cx="40" cy="30" r="10"/>
-          <circle cx="40" cy="50" r="10"/>
-        </svg>
-      </div>
-      <div class="product-info">
-        <div class="product-name">Phoenix Necklace</div>
-        <div class="product-name-cn">朱雀项链</div>
-        <div class="product-meta">
-          <span class="cn-only">朱砂+南红 · 灵性守护</span>
-          <span class="en-only">Cinnabar + agate · Spiritual guard</span>
-        </div>
-        <div class="product-price">¥ 2,180</div>
-      </div>
-    </a>
+  <div class="product-grid" data-shopify-collection="fire" data-shopify-limit="24">
+    <p class="catalog-empty"><span class="en-only">Loading…</span><span class="cn-only">加载中…</span></p>
   </div>
 </section>
 
-<!-- 系列哲学 -->
-<section class="philosophy">
-  <div class="philosophy-tag" data-reveal>
-    <span class="cn-only">火 · 五行之始</span>
-    <span class="en-only">Fire · The First Element</span>
-  </div>
-  <h2 class="philosophy-title" data-reveal data-delay="1">The Spirit of Fire</h2>
-  <p class="philosophy-text" data-reveal data-delay="2">
-    <span class="cn-only">火，象征光明、温暖与升腾的生命力。在五行之中，火主心、主神，是热情与表达的源头。佩戴火属性灵石，可激发内在能量，温养气血，助你心明目朗，行而有力。</span>
-    <span class="en-only">Fire symbolizes light, warmth and the rising force of life. Among the Five Elements, Fire governs the heart and spirit — the source of passion and expression. Wearing Fire crystals awakens inner energy, nourishes vitality, and brings clarity of mind and strength of will.</span>
-  </p>
-</section>
 
-<!-- Footer -->
 <footer class="footer">
-  <div class="footer-brand-mark">
-    <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
-      <line x1="80" y1="20" x2="80" y2="100"/>
-      <line x1="96.91" y1="23.75" x2="63.09" y2="96.25"/>
-      <line x1="63.09" y1="23.75" x2="96.91" y2="96.25"/>
-      <circle cx="80" cy="138" r="20"/>
-    </svg>
-    <span class="footer-brand-name">Noah Elements</span>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-mark">
+        <svg viewBox="0 0 160 180" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round">
+          <line x1="80" y1="20" x2="80" y2="100"/>
+          <line x1="96.91" y1="23.75" x2="63.09" y2="96.25"/>
+          <line x1="63.09" y1="23.75" x2="96.91" y2="96.25"/>
+          <circle cx="80" cy="138" r="20"/>
+        </svg>
+        <span class="footer-brand-name">Noah Elements</span>
+      </div>
+      <p class="footer-brand-tagline">
+        <span class="cn-only">五行能量灵性晶石<br>手工制作 · 普陀山祈福加持</span>
+        <span class="en-only">Five Elements Spiritual Stones<br>Handcrafted · Blessed at Putuo Mountain</span>
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4><span class="cn-only">五行</span><span class="en-only">Elements</span></h4>
+      <ul>
+        <li class="cn"><a href="/collections/fire.html" class="cn-only">火 · 火元素</a><a href="/collections/fire.html" class="en-only">Fire</a></li>
+        <li class="cn"><a href="/collections/earth.html" class="cn-only">土 · 土元素</a><a href="/collections/earth.html" class="en-only">Earth</a></li>
+        <li class="cn"><a href="/collections/metal.html" class="cn-only">金 · 金元素</a><a href="/collections/metal.html" class="en-only">Metal</a></li>
+        <li class="cn"><a href="/collections/water.html" class="cn-only">水 · 水元素</a><a href="/collections/water.html" class="en-only">Water</a></li>
+        <li class="cn"><a href="/collections/wood.html" class="cn-only">木 · 木元素</a><a href="/collections/wood.html" class="en-only">Wood</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4><span class="cn-only">探索</span><span class="en-only">Discover</span></h4>
+      <ul>
+        <li class="cn"><a href="/ai-test.html" class="cn-only">寻找你的元素</a><a href="/ai-test.html" class="en-only">Find Your Element</a></li>
+        <li class="cn"><a href="/custom.html" class="cn-only">定制解读</a><a href="/custom.html" class="en-only">Custom Reading</a></li>
+        <li class="cn"><a href="/the-practice.html" class="cn-only">五行之道</a><a href="/the-practice.html" class="en-only">The Practice</a></li>
+        <li class="cn"><a href="/our-story.html" class="cn-only">我们的故事</a><a href="/our-story.html" class="en-only">Our Story</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4><span class="cn-only">支持</span><span class="en-only">Support</span></h4>
+      <ul>
+        <li class="cn"><a href="/faq.html" class="cn-only">常见问题</a><a href="/faq.html" class="en-only">FAQ</a></li>
+        <li class="cn"><a href="/shipping.html" class="cn-only">配送</a><a href="/shipping.html" class="en-only">Shipping</a></li>
+        <li class="cn"><a href="/returns.html" class="cn-only">退换货</a><a href="/returns.html" class="en-only">Returns</a></li>
+        <li class="cn"><a href="/contact.html" class="cn-only">联系我们</a><a href="/contact.html" class="en-only">Contact</a></li>
+        <li class="cn"><a href="/privacy.html" class="cn-only">隐私与 Cookie</a><a href="/privacy.html" class="en-only">Privacy & Cookies</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-text">© 2026 Noah Elements. <span class="cn-only">保留所有权利</span><span class="en-only">All rights reserved.</span></div>
+
+  <div class="footer-bottom">
+    <div>© 2026 Noah Elements.</div>
+    <div class="footer-social">
+      <a class="footer-social-icon footer-social-ig" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
 </footer>
 
 <script>
   const toggleBtn = document.getElementById('langToggle');
   const body = document.body;
-  toggleBtn.addEventListener('click', () => {
-    const opts = toggleBtn.querySelectorAll('.opt');
-    if (body.classList.contains('lang-zh')) {
-      body.classList.replace('lang-zh', 'lang-en');
-      document.documentElement.setAttribute('lang', 'en');
-    } else {
-      body.classList.replace('lang-en', 'lang-zh');
-      document.documentElement.setAttribute('lang', 'zh');
-    }
-    opts.forEach(o => o.classList.toggle('active'));
-  });
+  
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -240,5 +163,11 @@
   document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 </script>
 
+<script src="../js/lang.js"></script>
+<script src="../js/shopify.js"></script>
+<script src="../js/catalog.js"></script>
+<script src="/js/particles.js" defer></script>
+<script src="/js/currency.js"></script>
+<script src="/js/cookies.js"></script>
 </body>
 </html>
