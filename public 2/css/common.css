@@ -1,0 +1,81 @@
+:root {
+  --beige:       #F5EDE0;
+  --beige-soft:  #EFE4D2;
+  --beige-deep:  #E5D5BA;
+  --khaki:       #C4A47C;
+  --terra:       #9D2933;
+  --caramel:     #A0522D;
+  --wine:        #722F37;
+  --deep:        #3E2723;
+  --deep-2:      #2A1A14;
+  --ink:         #2A2520;
+  --ink-soft:    #6B5D4F;
+  --ink-faint:   #998875;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Cormorant Garamond", "Noto Serif SC", serif;
+  background: var(--beige);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--terra); color: var(--beige); }
+
+/* ============ Reveal animations ============ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal].visible { opacity: 1; transform: translateY(0); }
+[data-reveal][data-delay="1"] { transition-delay: 0.12s; }
+[data-reveal][data-delay="2"] { transition-delay: 0.24s; }
+[data-reveal][data-delay="3"] { transition-delay: 0.36s; }
+[data-reveal][data-delay="4"] { transition-delay: 0.48s; }
+[data-reveal][data-delay="5"] { transition-delay: 0.60s; }
+
+/* ============ Nav brand ============ */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--terra);
+}
+.nav-brand svg { width: 24px; height: 28px; }
+.nav-brand-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* ============ Language toggle ============ */
+.lang-toggle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--ink);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  user-select: none;
+}
+.lang-toggle .opt { opacity: 0.45; transition: opacity 0.3s, color 0.3s; }
+.lang-toggle .opt.active { opacity: 1; color: var(--terra); font-weight: 500; }
+.lang-toggle .sep { margin: 0 8px; opacity: 0.3; }
+
+body.lang-en .cn-only { display: none !important; }
+body.lang-zh .en-only { display: none !important; }
+
+/* ============ Keyframes ============ */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes divider { from { opacity: 0; transform: scaleX(0); } to { opacity: 1; transform: scaleX(1); } }

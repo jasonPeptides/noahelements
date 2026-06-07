@@ -7,7 +7,7 @@
 <meta name="description" content="Five Elements Spiritual Stones · 五行能量灵性晶石 · 手工制作 · 普陀山祈福加持">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="images/hero-opt.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/noah/brand/hero-opt" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/index.css">
@@ -16,11 +16,11 @@
 <meta property="og:site_name" content="Noah Elements">
 <meta property="og:title" content="Noah Elements · 诺亚宇宙">
 <meta property="og:description" content="Five Elements Spiritual Stones · 五行能量灵性晶石 · 手工制作 · 普陀山祈福加持">
-<meta property="og:image" content="/images/hero-opt.jpg">
+<meta property="og:image" content="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/noah/brand/hero-opt">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Noah Elements · 诺亚宇宙">
 <meta name="twitter:description" content="Five Elements Spiritual Stones · 五行能量灵性晶石 · 手工制作 · 普陀山祈福加持">
-<meta name="twitter:image" content="/images/hero-opt.jpg">
+<meta name="twitter:image" content="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/noah/brand/hero-opt">
 <link rel="canonical" href="">
 <script src="/js/seo.js" defer></script>
 </head>
@@ -69,8 +69,8 @@
 <section class="hero" id="top">
 
   <!-- Photo background -->
-  <video class="hero-bg" autoplay muted loop playsinline poster="images/hero-opt.jpg" aria-hidden="true">
-    <source src="images/1878.MP4" type="video/mp4">
+  <video class="hero-bg" autoplay muted loop playsinline poster="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/noah/brand/hero-opt" aria-hidden="true">
+    <source src="https://res.cloudinary.com/dkpx98xr8/video/upload/f_auto,q_auto/1878_xzenxe.mp4" type="video/mp4">
   </video>
   <div class="hero-scrim" aria-hidden="true"></div>
 
@@ -166,8 +166,8 @@
   document.querySelectorAll('.element-card').forEach(card => {
     const element = card.getAttribute('href').match(/collections\/(\w+)\.html/)?.[1];
     if (!element) return;
-    const ext = ['metal','water','wood'].includes(element) ? 'PNG' : 'png';
-    const src = 'images/' + element + '.' + ext;
+    const EMAP = {fire:'fire_pcraxe',earth:'earth_ljyss0',metal:'metal_sjk7ti',water:'water_xyckmf',wood:'wood_ejgtmp'};
+    const src = 'https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/' + (EMAP[element]||element);
     card.addEventListener('mouseenter', () => {
       if (bgImg.getAttribute('src') !== src) bgImg.src = src;
       bgImg.classList.add('visible');
@@ -206,7 +206,7 @@
       </div>
     </div>
     <div class="discover-right" data-reveal data-delay="1">
-      <img src="images/practitioner-seated.jpg" alt="A practitioner with wrist beads" class="discover-img" loading="lazy" decoding="async">
+      <img src="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/five-elements-beads_g0k92j" alt="Five-element bead bracelet" class="discover-img" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
@@ -224,15 +224,15 @@
 
 <!-- ============ FULL-BLEED IMAGE ============ -->
 <section class="band band-video" aria-hidden="true">
-  <video autoplay muted loop playsinline poster="images/full-bleed-hands.jpg">
-    <source src="images/1899.MP4" type="video/mp4">
+  <video autoplay muted loop playsinline poster="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/noah/brand/full-bleed-hands">
+    <source src="https://res.cloudinary.com/dkpx98xr8/video/upload/f_auto,q_auto/1899_co3z9h.mp4" type="video/mp4">
   </video>
 </section>
 
 <!-- ============ BLESSING BAND ============ -->
 <section class="band band-blessing">
   <div class="blessing-inner" data-reveal>
-    <img class="blessing-card" src="/images/blessing-card.jpeg" alt="Putuo Mountain blessing card, gold-engraved Guanyin" loading="lazy" decoding="async">
+    <img class="blessing-card" src="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/blessing-card_zw8esk" alt="Putuo Mountain blessing card, gold-engraved Guanyin" loading="lazy" decoding="async">
     <div class="blessing-copy">
       <span class="section-eyebrow">The Blessing</span>
       <h2 class="band-title">Before this stone reaches you, it goes somewhere holy.</h2>
