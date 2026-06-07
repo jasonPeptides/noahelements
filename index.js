@@ -124,6 +124,12 @@ app.get('/{*path}', (req, res) => {
   res.status(404).sendFile(path.join(PUBLIC, '404.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Run a real server only when executed directly (local / Node host).
+// On Vercel the app is imported and used as a serverless handler instead.
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
