@@ -32,8 +32,8 @@
 .lattice-bg {
   position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
   /* dissolve into the sections above & below — soft fade at the band edges */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 74%, transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 74%, transparent 100%);
+  -webkit-mask-image: none;
+          mask-image: none;
 }
 .lattice-bg svg { display: block; width: 100%; height: 100%; filter: blur(0.6px); }
 

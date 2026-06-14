@@ -114,6 +114,7 @@
     </div>
 
     <div class="elements-right">
+      <div class="elements-map-box">
       <div class="elements-circle">
         <svg class="elements-connector" viewBox="0 0 620 620" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
           <path d="M310,110 L500,248 L428,472 L192,472 L120,248 Z" />
@@ -156,6 +157,7 @@
           </div>
         </div>
       </div>
+      </div><!-- /.elements-map-box -->
     </div>
 
   </div>
@@ -184,15 +186,13 @@
 })();
 </script>
 
-<!-- ============ STATEMENT BAND ============ -->
-<section class="band band-quote" data-lattice="bone" data-lattice-opacity="0.1">
-  <p class="band-quote-text" data-reveal>When you lose something, or when something new arrives, there is a stone that has already been prayed for, waiting to be with you.</p>
-</section>
-
-<!-- ============ DISCOVER ============ -->
+<!-- ============ DISCOVER (image left, connected to the map above) ============ -->
 <section class="section discover" id="discover">
   <div class="discover-split">
-    <div class="discover-left" data-reveal>
+    <div class="discover-right" data-reveal>
+      <img src="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/noah-coastal-pagoda-001_nqgg0c" alt="Coastal pagoda at Putuo" class="discover-img" loading="lazy" decoding="async">
+    </div>
+    <div class="discover-left" data-reveal data-delay="1">
       <span class="section-eyebrow">The Test</span>
       <h2 class="section-title"><span class="en-only">Find Your Element</span><span class="cn-only">寻找你的元素</span></h2>
       <p class="discover-text">
@@ -206,10 +206,12 @@
         </a>
       </div>
     </div>
-    <div class="discover-right" data-reveal data-delay="1">
-      <img src="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/noah-coastal-pagoda-001_nqgg0c" alt="Coastal pagoda at Putuo" class="discover-img" loading="lazy" decoding="async">
-    </div>
   </div>
+</section>
+
+<!-- ============ STATEMENT BAND ============ -->
+<section class="band band-quote" data-lattice="bone" data-lattice-opacity="0.1">
+  <p class="band-quote-text" data-word-reveal>When you lose something, or when something new arrives, there is a stone that has already been prayed for, waiting to be with you.</p>
 </section>
 
 <!-- ============ FEATURED PRODUCTS ============ -->
@@ -242,10 +244,10 @@
 </section>
 
 <!-- ============ CONSULTATION SERVICE ============ -->
-<section class="section consultation" id="consultation" data-lattice="garnet" data-lattice-opacity="0.08">
+<section class="section consultation" id="consultation" data-lattice="bone" data-lattice-opacity="0.1">
   <div class="consultation-inner" data-reveal>
     <span class="consultation-seal" data-seal-scroll aria-hidden="true"></span>
-      <h2 class="section-title consultation-title"><span class="en-only"><span class="consult-kicker">Noah Elements</span>Bespoke Service</span><span class="cn-only"><span class="consult-kicker">尊享</span>定制</span></h2>
+      <h2 class="consultation-title"><span class="en-only"><span class="consult-kicker">Noah Elements</span><span class="consult-main">Bespoke Service</span></span><span class="cn-only"><span class="consult-kicker">诺亚</span><span class="consult-main">尊享定制</span></span></h2>
     <p class="consultation-text">
       <span class="en-only">Your element is not a personality type, it is where you are right now. A Ba Zi reading of your birth chart identifies where the imbalance actually is, then selects a stone for that. Not for who you always are. For who you are in this chapter.</span>
       <span class="cn-only">你的元素不是一种性格类型，而是你此刻所在的位置。八字解读会找出你当下真正的失衡所在，再为之甄选灵石，不为你一贯的样子，只为此刻的你。</span>
@@ -373,6 +375,23 @@
 
   // Scroll-reveal is handled by the shared observer in lang.js (one system,
   // delayed trigger so the fade/rise is actually seen).
+
+  // Word-by-word reveal for the band-quote
+  (function () {
+    var el = document.querySelector('[data-word-reveal]');
+    if (!el) return;
+    var text = el.textContent.trim();
+    var words = text.split(/\s+/);
+    el.innerHTML = words.map(function (w, i) {
+      return '<span class="word" style="transition-delay:' + (i * 55) + 'ms">' + w + '</span>';
+    }).join(' ');
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { el.classList.add('words-visible'); obs.disconnect(); }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(el);
+  })();
 </script>
 
 <script>

@@ -583,7 +583,7 @@ body.lang-en .elements-intro {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .elements-subtitle {
@@ -647,6 +647,18 @@ body.lang-en .elements-discover-note { font-family: var(--font-body); font-size:
   font-size: 15px;
   line-height: 1.8;
   color: var(--ink-soft);
+}
+
+/* Subtle tinted box behind the pentagonal map — narrower card */
+.elements-map-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(42,39,35,0.055);
+  border-radius: 28px;
+  padding: 20px 12px;
+  max-width: 560px;
+  width: 100%;
 }
 
 /* ============ Five Elements — circle layout ============ */
@@ -801,8 +813,8 @@ body.lang-en .elements-discover-note { font-family: var(--font-body); font-size:
 }
 .element-char .oracle-glyph {
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 80px;
+  height: 80px;
   filter: drop-shadow(0 2px 12px rgba(0,0,0,0.5));
 }
 
@@ -1084,7 +1096,7 @@ body.lang-en .card-desc { font-family: var(--font-body); font-size: 13px; letter
 .discover-cta:hover { letter-spacing: 5px; }
 
 @media (max-width: 900px) {
-  .discover-split { flex-direction: column; }
+  .discover-split { flex-direction: column-reverse; }
   .discover-right { flex: none; height: 400px; position: relative; }
   .discover-left { padding: 80px 32px 60px; }
 }
@@ -1233,7 +1245,7 @@ body.lang-en .closing-text {
   .name-meaning .divider-v { width: 30px; height: 0.5px; margin: 0 auto; }
   .elements-grid { margin: 0 -32px; grid-template-columns: repeat(3, 1fr); }
   .element-char { font-size: 64px; }
-  .element-char .oracle-glyph { width: 60px; height: 60px; }
+  .element-char .oracle-glyph { width: 52px; height: 52px; }
   .blessing { padding: 50px 28px; }
   .cards { grid-template-columns: 1fr; gap: 14px; }
   .finale { padding: 100px 32px 60px; }
@@ -1518,13 +1530,26 @@ body.lang-en .closing-text {
 .band-quote {
   position: relative;
   color: var(--bone-text);
-  background: var(--grad-charcoal);
+  background: var(--charcoal);
 }
 .band-quote-text { position: relative; z-index: 1; color: var(--bone-text); }
+
+/* Word-by-word reveal on the band-quote */
+.band-quote-text .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--t-reveal) var(--ease-entrance),
+              transform var(--t-reveal) var(--ease-entrance);
+}
+.band-quote-text.words-visible .word { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .band-quote-text .word { opacity: 1; transform: none; transition: none; }
+}
 /* lattice fades in/out at the band edges so it melts into the sections above & below */
 .band-quote .lattice-bg {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 76%, transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 76%, transparent 100%);
+  -webkit-mask-image: none;
+          mask-image: none;
 }
 
 /* ---- Discover ("find your element"): solid bone (matches Featured below),
@@ -1532,12 +1557,19 @@ body.lang-en .closing-text {
 .discover { color: var(--ink); background: var(--bone); }
 .discover-left .section-title { color: var(--terra); }
 .discover-text { color: var(--body); }
-.section.discover { padding: var(--pad-y) var(--pad-x); }
+/* connected to the Five Elements map above: image rises up into the elements section */
+.elements { padding-bottom: 220px; }
+.section.discover {
+  padding: 0 var(--pad-x) var(--pad-y);
+  margin-top: -220px; /* pull whole section up so image overlaps elements map */
+  position: relative; z-index: 1;
+}
+.discover-split { align-items: flex-start; }
 .discover-split {
   max-width: var(--content); margin: 0 auto;
-  min-height: 0; align-items: center; gap: clamp(32px, 5vw, 72px);
+  min-height: 0; align-items: flex-end; gap: clamp(32px, 5vw, 72px);
 }
-.discover-left { flex: 1; }
+.discover-left { flex: 1; padding-top: 60px; }
 .discover-right { flex: 0 0 46%; position: relative; overflow: visible; }
 .discover-img {
   position: static; width: 100%; height: auto; display: block;
@@ -1547,6 +1579,16 @@ body.lang-en .closing-text {
 
 /* ---- Featured product cards: taller imagery (+100% height) ---- */
 .featured-grid .product-image { aspect-ratio: 3 / 4; }
+
+/* ---- Collection (category) cards use the SAME card as the homepage ---- */
+.product-grid .product-image {
+  aspect-ratio: 3 / 4;
+  background: var(--surface);
+  border-radius: 4px;
+}
+.product-grid .product-card { border-radius: 0; }
+.product-grid .product-card:hover { box-shadow: none; }
+.product-grid .product-info { padding: 16px 2px 0; text-align: left; }
 
 /* ---- Blessing: contained rounded video on a bone ground (matches Featured) ---- */
 .band-blessing-video {
@@ -1585,33 +1627,43 @@ body.lang-en .closing-text {
 .blessing-cta .btn-secondary:hover { border-color: var(--bone-text); opacity: 1; }
 
 /* ---- Bespoke Service: bone field, debossed title, red-disc seal ---- */
-.consultation { background: var(--grad-bone); }
+.consultation { background: var(--charcoal); }
 /* wider content + sit above the faint lattice layer */
 .consultation-inner { max-width: 860px; position: relative; z-index: 1; }
 .story-narrative, .story-lead { max-width: 940px; }
-.consultation-cta { background: #161310; border-color: #161310; color: var(--bone-text); }
-.consultation-cta:hover { background: #000; border-color: #000; }
+.consultation .consultation-cta { background: var(--bone-text); border-color: var(--bone-text); color: var(--charcoal); }
+.consultation .consultation-cta:hover { background: #fff; border-color: #fff; color: var(--charcoal); }
 .consultation-seal { color: #F4EEE2; }
 /* Debossed (pressed-in) title: dark shadow above the glyphs, a faint bone
    highlight below — reads as carved inward. Lighter fill for legibility. */
-/* Bespoke title — luxury two-tier hierarchy on the bone ground:
-   a small tracked uppercase kicker over the large serif word. */
+/* Bespoke title — unified serif lockup: large brand name over smaller all-caps subtitle */
 .consultation-title {
   color: #161310;
   text-shadow: none;
-  letter-spacing: 0.4px;
+  letter-spacing: 0;
+  margin-bottom: 22px;
 }
 .consult-kicker {
   display: block;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: var(--garnet);
-  margin-bottom: 18px;
+  font-family: var(--font-head);
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 400;
+  color: var(--bone-text);
+  letter-spacing: 0.5px;
+  line-height: 1.05;
+  margin-bottom: 6px;
 }
-.consultation-text { color: #161310; }
+.consult-main {
+  display: block;
+  font-family: var(--font-head);
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bone-text);
+}
+
+.consultation-text { color: var(--bone-text); opacity: 0.8; }
 .consultation-seal {
   display: block; width: 128px; margin: 0 auto 24px; color: #F4EEE2;
 }

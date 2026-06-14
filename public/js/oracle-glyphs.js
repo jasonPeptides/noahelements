@@ -14,10 +14,11 @@
   function wrap(inner) {
     return (
       '<svg class="oracle-glyph" viewBox="0 0 100 100" fill="none" ' +
-      'stroke="currentColor" stroke-width="5" stroke-linecap="round" ' +
+      'stroke="currentColor" stroke-width="4" stroke-linecap="round" ' +
       'stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+      '<g>' +
       inner +
-      '</svg>'
+      '</g></svg>'
     );
   }
 

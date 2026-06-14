@@ -117,7 +117,7 @@ body.lang-en .page-hero-desc {
 
 /* ============ Products ============ */
 .products {
-  padding: var(--pad-y) var(--pad-x);
+  padding: var(--pad-y) 0;
   background: var(--bg-organic);}
 .products-header {
   max-width: 1200px;
@@ -154,11 +154,9 @@ body.lang-en .products-title { font-style: normal; text-transform: none; }
 body.lang-en .products-title-cn { display: none; }
 
 .product-grid {
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 0;
 }
 .product-card {
   background: var(--bg-organic);  border: 0.5px solid rgba(139, 105, 20, 0.1);
@@ -240,7 +238,7 @@ body.lang-en .product-meta {
 
 /* ============ Philosophy ============ */
 .philosophy {
-  padding: var(--pad-y) var(--pad-x);
+  padding: var(--pad-y) 0;
   background: var(--bg-organic);  text-align: center;
 }
 .philosophy-tag {

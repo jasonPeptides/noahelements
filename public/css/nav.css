@@ -183,6 +183,13 @@ body:has(.doc-hero) .nav:not(.scrolled) .lang-toggle .opt.active { color: var(--
 /* Remove hero divider lines (align to homepage eyebrow styling) */
 .page-hero-divider { display: none; }
 
+/* Light page-heroes site-wide (brand): bone ground, garnet title, charcoal copy */
+.page-hero { background: var(--bone); }
+.page-hero-title { color: var(--terra); }
+.page-hero-tag, .page-hero-cn { color: var(--ink-soft); }
+.page-hero-desc, body.lang-en .page-hero-desc { color: var(--body); }
+.hero-particles { opacity: 0.4; }
+
 /* Header logo line width tuned to match the nav icon line width (~1.27px) */
 .nav-brand svg { stroke-width: 8.5; }
 
