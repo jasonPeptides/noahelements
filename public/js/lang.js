@@ -83,20 +83,56 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
   }
 
-  // Shared scroll-reveal — one consistent system for every page. Elements with
-  // [data-reveal] fade/rise in once when they enter the viewport.
+  // Scroll-scrubbed reveal — progress driven by scroll position so animations
+  // enter AND exit. MutationObserver picks up dynamically injected elements.
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var revealEls = document.querySelectorAll('[data-reveal]:not(.visible)');
-  if (revealEls.length) {
-    if (reduce || !('IntersectionObserver' in window)) {
-      revealEls.forEach(function (el) { el.classList.add('visible'); });
-    } else {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -22% 0px' });
-      revealEls.forEach(function (el) { io.observe(el); });
+
+  if (reduce) {
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      el.style.opacity = '1'; el.style.transform = 'none';
+    });
+  } else {
+    var revealEls = [];
+    var revealState = [];
+
+    function addRevealEl(el) {
+      if (revealEls.indexOf(el) !== -1) return;
+      var r = el.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var raw = (vh - r.top) / (vh * 0.45);
+      var init = raw < 0 ? 0 : raw > 1 ? 1 : raw;
+      revealEls.push(el);
+      revealState.push({ op: init, ty: (1 - init) * 24 });
     }
+
+    document.querySelectorAll('[data-reveal]').forEach(addRevealEl);
+
+    // Catch dynamically added elements (product cards, etc.)
+    new MutationObserver(function (records) {
+      records.forEach(function (rec) {
+        rec.addedNodes.forEach(function (node) {
+          if (node.nodeType !== 1) return;
+          if (node.hasAttribute && node.hasAttribute('data-reveal')) addRevealEl(node);
+          if (node.querySelectorAll) node.querySelectorAll('[data-reveal]').forEach(addRevealEl);
+        });
+      });
+    }).observe(document.body, { childList: true, subtree: true });
+
+    function tickReveal() {
+      var vh = window.innerHeight;
+      for (var i = 0; i < revealEls.length; i++) {
+        var el = revealEls[i];
+        var r = el.getBoundingClientRect();
+        var raw = (vh - r.top) / (vh * 0.45);
+        var target = raw < 0 ? 0 : raw > 1 ? 1 : raw;
+        var s = revealState[i];
+        s.op += (target - s.op) * 0.14;
+        s.ty += ((1 - target) * 24 - s.ty) * 0.14;
+        el.style.opacity = s.op.toFixed(3);
+        el.style.transform = s.ty > 0.3 ? 'translateY(' + s.ty.toFixed(2) + 'px)' : 'none';
+      }
+      requestAnimationFrame(tickReveal);
+    }
+    requestAnimationFrame(tickReveal);
   }
 })();

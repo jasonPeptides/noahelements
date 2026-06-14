@@ -44,7 +44,8 @@
 .nav-brand svg { width: 24px; height: 28px; display: none; }
 .nav-brand-name {
   font-family: var(--font-head);
-  font-size: 18px; letter-spacing: 4px; text-transform: none;
+  font-size: 14px; letter-spacing: 5px; text-transform: uppercase;
+  font-weight: 700;
   color: var(--ink); white-space: nowrap;
 }
 
@@ -85,8 +86,8 @@
   padding: 0 28px 12px;
   margin-bottom: 8px;
   border-bottom: 0.5px solid rgba(139, 90, 60, 0.15);
-  font-family: var(--font-body);
-  font-size: 10px; letter-spacing: 3px; text-transform: none;
+  font-family: var(--font-head);
+  font-size: 12px; letter-spacing: 1px; text-transform: none;
   color: var(--terra);
 }
 .nav-menu-panel a {
@@ -184,9 +185,34 @@ body:has(.doc-hero) .nav:not(.scrolled) .lang-toggle .opt.active { color: var(--
 .page-hero-divider { display: none; }
 
 /* Light page-heroes site-wide (brand): bone ground, garnet title, charcoal copy */
-.page-hero { background: var(--bone); }
+.page-hero { background: var(--bone); position: relative; }
+
+/* Fade the lattice pattern out at the bottom edge into the next section */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 320px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(237,231,220,0.55) 40%, var(--bone) 80%);
+  pointer-events: none;
+  z-index: 2;
+}
+/* Lift hero content above the ::after gradient overlay (z-index: 2) */
+.page-hero > .page-hero-title,
+.page-hero > .page-hero-desc,
+.page-hero > .page-hero-tag,
+.page-hero > .hero-glyph { position: relative; z-index: 3; }
 .page-hero-title { color: var(--terra); }
 .page-hero-tag, .page-hero-cn { color: var(--ink-soft); }
+/* Lattice hero: slightly taller than content; products pulled up to close the gap */
+body:has(.page-hero) .page-hero { padding-bottom: 120px; }
+body:has(.page-hero) .products {
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+  background: var(--bone);
+  padding-top: 0;
+}
 .page-hero-desc, body.lang-en .page-hero-desc { color: var(--body); }
 .hero-particles { opacity: 0.4; }
 
@@ -198,3 +224,7 @@ body:has(.doc-hero) .nav:not(.scrolled) .lang-toggle .opt.active { color: var(--
 
 /* Bold brand wordmark in header */
 .nav-brand-name { font-weight: 600; }
+
+/* Hero oracle glyph */
+.hero-glyph { width: 64px; height: 64px; margin: 0 auto 20px; color: var(--garnet); opacity: 0.75; }
+.hero-glyph .oracle-glyph { width: 100%; height: 100%; }

@@ -554,3 +554,32 @@ body.lang-en .question-text { font-weight: 400; font-size: 30px; letter-spacing:
 .recs-title { margin-bottom: 8px; }
 .recs-title-cn { margin-bottom: 36px; }
 .recs-grid { margin-top: 0; margin-bottom: 48px; }
+
+/* ===== BaZi birth-data form ===== */
+.bazi-form-wrap { max-width: 480px; margin: 0 auto; padding: 56px 0 80px; display: flex; flex-direction: column; gap: 32px; }
+.bazi-field { display: flex; flex-direction: column; gap: 10px; }
+.bazi-label { font-family: var(--font-body); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--khaki); }
+.bazi-optional { font-size: 11px; letter-spacing: 1px; opacity: 0.7; text-transform: none; }
+.bazi-input {
+  width: 100%; padding: 14px 18px;
+  background: transparent;
+  border: 1px solid rgba(42,39,35,0.25);
+  border-radius: 6px;
+  font-family: var(--font-body); font-size: 16px; color: var(--ink);
+  appearance: none;
+  transition: border-color 0.2s;
+}
+.bazi-input:focus { outline: none; border-color: var(--garnet); }
+.bazi-gender { display: flex; gap: 12px; }
+.bazi-gender-btn {
+  flex: 1; padding: 13px;
+  background: transparent;
+  border: 1px solid rgba(42,39,35,0.25);
+  border-radius: 6px;
+  font-family: var(--font-body); font-size: 15px; color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.bazi-gender-btn.selected { border-color: var(--garnet); background: rgba(110,28,42,0.06); color: var(--garnet); }
+.bazi-submit { width: 100%; padding: 18px; margin-top: 8px; }
+.bazi-error { color: var(--garnet); font-size: 14px; padding: 12px 0; }

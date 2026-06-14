@@ -32,64 +32,40 @@
 .pdp-crumbs a:hover { color: var(--beige); }
 .pdp-crumb-sep { margin: 0 12px; opacity: 0.4; }
 
-/* Full-bleed layout — image flush to the left edge, half the screen wide and
-   full viewport height; details vertically centred in the right half. */
+/* Desktop: stacked images left, sticky info panel right */
 .pdp {
   display: grid;
   grid-template-columns: 50vw 1fr;
-  align-items: center;
+  align-items: start;
   padding-top: 96px;
 }
 
-/* ---- Gallery / carousel (left half, full height) ---- */
+/* ---- Gallery — desktop: vertical stack of images ---- */
 .pdp-gallery { position: relative; }
-.pdp-carousel {
-  position: relative;
-  height: calc(100vh - 96px); /* full viewport height, below the fixed nav */
-  overflow: hidden;
-  background: #0c0807;
-}
-.pdp-slides {
-  display: flex;
-  height: 100%;
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.pdp-slide { min-width: 100%; height: 100%; }
-.pdp-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pdp-carousel { position: relative; background: #0c0807; }
+.pdp-slides { display: block; }
+.pdp-slide { width: 100%; }
+.pdp-slide img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
 
-.pdp-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  width: 46px; height: 46px; border-radius: 50%;
-  border: none; cursor: pointer;
-  background: rgba(20, 14, 12, 0.45);
-  color: var(--beige); font-size: 24px; line-height: 1;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.3s; backdrop-filter: blur(6px);
-}
-.pdp-nav:hover { background: rgba(20, 14, 12, 0.75); }
-.pdp-prev { left: 16px; }
-.pdp-next { right: 16px; }
-.pdp-dots {
-  position: absolute; left: 0; right: 0; bottom: 18px;
-  display: flex; justify-content: center; gap: 9px;
-}
-.pdp-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  border: none; cursor: pointer; padding: 0;
-  background: rgba(245, 237, 224, 0.4);
-  transition: background 0.3s, transform 0.3s;
-}
-.pdp-dot.active { background: var(--beige); transform: scale(1.25); }
+/* Hide carousel chrome on desktop — images are scrolled, not clicked */
+.pdp-nav { display: none; }
+.pdp-dots { display: none; }
 
-/* ---- Info (right half) ---- */
-.pdp-info { padding: 0 64px 0 56px; max-width: 600px; }
+/* ---- Info: sticky panel that stays in view while scrolling images ---- */
+.pdp-info {
+  padding: 0 64px 0 56px;
+  max-width: 600px;
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
 .pdp-title {
   font-family: var(--font-head);
   font-weight: 400;
   font-size: var(--fs-h2);
   letter-spacing: var(--ls-h2);
   line-height: var(--lh-head);
-  color: var(--beige);
+  color: var(--garnet);
   margin-bottom: 18px;
 }
 .pdp-price {
@@ -227,12 +203,28 @@ body.lang-en .pdp-desc { font-family: var(--font-body); font-size: 15px; }
 @media (max-width: 900px) {
   .pdp-wrap { padding: 0 0 80px; }
   .pdp { grid-template-columns: 1fr; padding-top: 84px; }
-  /* Mobile: show product photos at their natural aspect ratio (no crop/scale) */
-  .pdp-carousel { height: auto; }
-  .pdp-slides { align-items: flex-start; }
-  .pdp-slide { height: auto; }
-  .pdp-slide img { height: auto; object-fit: contain; }
-  .pdp-info { padding: 32px 32px 0; max-width: none; }
+  /* Mobile: native horizontal scroll with snap */
+  .pdp-carousel { overflow: hidden; }
+  .pdp-slides {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .pdp-slides::-webkit-scrollbar { display: none; }
+  .pdp-slide { min-width: 100%; scroll-snap-align: start; flex-shrink: 0; }
+  .pdp-slide img { aspect-ratio: 3 / 4; object-fit: cover; }
+  /* Dot indicators visible on mobile */
+  .pdp-dots {
+    display: flex;
+    position: relative;
+    left: auto; right: auto; bottom: auto;
+    justify-content: center;
+    gap: 9px;
+    padding: 14px 0 4px;
+  }
+  .pdp-info { padding: 32px 32px 0; max-width: none; position: static; }
   .pdp-related { margin: 80px auto 0; padding: 56px 32px 0; }
   .pdp-related-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -241,7 +233,8 @@ body.lang-en .pdp-desc { font-family: var(--font-body); font-size: 15px; }
   .pdp-info { padding: 28px 20px 0; }
   .pdp-related { padding: 48px 20px 0; }
   .pdp-buy { flex-direction: column; }
-  .pdp-qty { align-self: flex-start; }
+  .pdp-qty { align-self: stretch; width: 100%; justify-content: space-between; }
+  .pdp-add { width: 100%; }
 }
 
 /* ============ PDP blessing note + certificate ============ */

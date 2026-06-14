@@ -36,11 +36,11 @@
     </button>
     <div class="nav-menu-panel" id="menuPanel" role="menu">
       <span class="nav-menu-panel-head"><span class="cn-only">五行灵石</span><span class="en-only">The Five Elements</span></span>
-      <a href="/collections/wood.html" role="menuitem"><span class="cn-only">木 · Wood</span><span class="en-only">Wood · Origin</span></a>
-      <a href="/collections/fire.html" role="menuitem"><span class="cn-only">火 · Fire</span><span class="en-only">Fire · Embers</span></a>
-      <a href="/collections/earth.html" role="menuitem"><span class="cn-only">土 · Earth</span><span class="en-only">Earth · Roots</span></a>
-      <a href="/collections/metal.html" role="menuitem"><span class="cn-only">金 · Metal</span><span class="en-only">Metal · Endure</span></a>
-      <a href="/collections/water.html" role="menuitem"><span class="cn-only">水 · Water</span><span class="en-only">Water · Still</span></a>
+      <a href="/collections/wood.html" role="menuitem"><span class="cn-only">木 · Wood</span><span class="en-only">Wood</span></a>
+      <a href="/collections/fire.html" role="menuitem"><span class="cn-only">火 · Fire</span><span class="en-only">Fire</span></a>
+      <a href="/collections/earth.html" role="menuitem"><span class="cn-only">土 · Earth</span><span class="en-only">Earth</span></a>
+      <a href="/collections/metal.html" role="menuitem"><span class="cn-only">金 · Metal</span><span class="en-only">Metal</span></a>
+      <a href="/collections/water.html" role="menuitem"><span class="cn-only">水 · Water</span><span class="en-only">Water</span></a>
       <span class="nav-menu-panel-head nav-menu-panel-head-2"><span class="cn-only">了解</span><span class="en-only">Explore</span></span>
       <a href="/custom.html" role="menuitem"><span class="cn-only">定制解读</span><span class="en-only">Custom Reading</span></a>
       <a href="/the-practice.html" role="menuitem"><span class="cn-only">五行之道</span><span class="en-only">The Practice</span></a>
@@ -77,11 +77,11 @@
 
   <div class="hero-copy" data-reveal>
     <h1 class="hero-headline">
-      <span class="en-only">Not all stones are for the same moment.</span>
-      <span class="cn-only">不是所有的石头，都为同一个时刻而存在。</span>
+      <span class="en-only">Handcrafted stones blessed at Putuo Mountain.</span>
+      <span class="cn-only">手工制作 · 普陀山祈福加持。</span>
     </h1>
     <div class="hero-cta">
-      <a href="/ai-test.html" class="btn-secondary"><span class="en-only">Find yours</span><span class="cn-only">测算我的元素</span></a>
+      <a href="/ai-test.html" class="hero-text-link"><span class="en-only">Find yours</span><span class="cn-only">测算我的元素</span></a>
     </div>
   </div>
 
@@ -114,10 +114,20 @@
     </div>
 
     <div class="elements-right">
+      <!-- SVG filter for rough-edged circle rings -->
+      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+        <defs>
+          <filter id="rough-circle" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="2" seed="9" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+      </svg>
       <div class="elements-map-box">
+      <div class="elements-map-tint" id="elemMapTint"></div>
       <div class="elements-circle">
-        <svg class="elements-connector" viewBox="0 0 620 620" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
-          <path d="M310,110 L500,248 L428,472 L192,472 L120,248 Z" />
+        <svg class="elements-connector" viewBox="0 0 500 500" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+          <path d="M250,50 L440,188 L368,412 L132,412 L60,188 Z" />
         </svg>
         <a class="element-card" href="collections/fire.html" style="--ec: var(--fire);">
           <div class="element-card-circle">
@@ -151,11 +161,11 @@
         </a>
         <div class="elements-bg-circle">
           <img class="elements-bg-img" alt="">
-          <div class="elements-bg-hint">
-            <span class="cn-only">选择元素查看产品</span>
-            <span class="en-only">Select an element<br>to see products</span>
-          </div>
         </div>
+      </div>
+      <div class="elements-bg-hint">
+        <span class="cn-only">选择元素，探索灵石</span>
+        <span class="en-only">Select an element to discover</span>
       </div>
       </div><!-- /.elements-map-box -->
     </div>
@@ -166,23 +176,53 @@
 (function() {
   const bgImg  = document.querySelector('.elements-bg-img');
   const hint   = document.querySelector('.elements-bg-hint');
+  const tintEl = document.getElementById('elemMapTint');
+
+  // Tint blooms outward from each element's position on the map
+  const TINT_POS = {
+    fire:  '50% 5%',
+    earth: '88% 40%',
+    metal: '74% 80%',
+    water: '26% 80%',
+    wood:  '12% 40%',
+  };
+  const TINT_COL = {
+    fire:  'rgba(178, 58, 46, 0.22)',
+    water: 'rgba(58, 107, 139, 0.22)',
+    wood:  'rgba(74, 124, 63, 0.22)',
+    earth: 'rgba(139, 105, 20, 0.22)',
+    metal: 'rgba(168, 144, 96, 0.22)',
+  };
+
+  const EMAP = {fire:'fire_pcraxe',earth:'earth_ljyss0',metal:'metal_sjk7ti',water:'water_xyckmf',wood:'wood_ejgtmp'};
+
   document.querySelectorAll('.element-card').forEach(card => {
     const element = card.getAttribute('href').match(/collections\/(\w+)\.html/)?.[1];
     if (!element) return;
-    const EMAP = {fire:'fire_pcraxe',earth:'earth_ljyss0',metal:'metal_sjk7ti',water:'water_xyckmf',wood:'wood_ejgtmp'};
     const src = 'https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/' + (EMAP[element]||element);
     card.addEventListener('mouseenter', () => {
       if (bgImg.getAttribute('src') !== src) bgImg.src = src;
       bgImg.classList.add('visible');
       hint.classList.add('hidden');
-    });
-    card.addEventListener('mouseleave', () => {
-      bgImg.classList.remove('visible');
-      hint.classList.remove('hidden');
-      // Keep the image loaded (just faded out), clearing src on transitionend
-      // caused it to vanish mid-hover when moving between elements.
+      if (tintEl && TINT_COL[element]) {
+        const pos = TINT_POS[element];
+        const col = TINT_COL[element];
+        tintEl.style.backgroundImage = 'radial-gradient(circle at ' + pos + ', ' + col + ' 0%, ' + col + ' 20%, transparent 68%)';
+        tintEl.style.backgroundColor = '';
+        tintEl.classList.add('active');
+      }
     });
   });
+
+  // Reset when mouse exits the whole map widget (handles gaps between element circles)
+  const mapBox = document.querySelector('.elements-map-box');
+  if (mapBox) {
+    mapBox.addEventListener('mouseleave', () => {
+      bgImg.classList.remove('visible');
+      hint.classList.remove('hidden');
+      if (tintEl) { tintEl.classList.remove('active'); }
+    });
+  }
 })();
 </script>
 
@@ -194,7 +234,7 @@
     </div>
     <div class="discover-left" data-reveal data-delay="1">
       <span class="section-eyebrow">The Test</span>
-      <h2 class="section-title"><span class="en-only">Find Your Element</span><span class="cn-only">寻找你的元素</span></h2>
+      <h2 class="section-title discover-title"><span class="en-only">Find yours</span><span class="cn-only">寻找你的元素</span></h2>
       <p class="discover-text">
         <span class="cn-only">说不清哪里不对劲？回答几个简短的问题，发现你的能量正在呼唤五行中的哪一种，以及哪一枚灵石能帮你重归平衡。</span>
         <span class="en-only">Something feels off, and you can't quite name it? Answer a few short questions and discover which of the Five Elements your energy is calling for, and the stone that can help restore the balance.</span>
@@ -220,7 +260,7 @@
     <span class="section-eyebrow">The Collection</span>
       <h2 class="section-title"><span class="en-only">Featured Stones</span><span class="cn-only">精选灵石</span></h2>
   </div>
-  <div class="featured-grid" data-shopify-featured data-shopify-limit="4">
+  <div class="featured-grid" data-shopify-featured data-shopify-limit="4" data-show-element-label>
     <p class="catalog-empty"><span class="en-only">Loading…</span><span class="cn-only">加载中…</span></p>
   </div>
 </section>
@@ -260,6 +300,11 @@
 
 <!-- ============ STORY ============ -->
 <section class="section story" id="story">
+  <div class="story-images" data-reveal>
+    <img class="story-img" src="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/Noah8007_Product_Beautifier_Virtual_Model_pr5ysu" alt="" loading="lazy">
+    <img class="story-img" src="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/ChatGPT_Image_2026_ay63bx" alt="" loading="lazy">
+    <video class="story-img" src="https://res.cloudinary.com/dkpx98xr8/video/upload/f_auto,q_auto/1877_z9gx8s" autoplay muted loop playsinline></video>
+  </div>
   <h2 class="section-title" data-reveal><span class="en-only">My Story</span><span class="cn-only">我的故事</span></h2>
 
   <div class="story-narrative" id="story-founder" data-reveal>
@@ -376,21 +421,34 @@
   // Scroll-reveal is handled by the shared observer in lang.js (one system,
   // delayed trigger so the fade/rise is actually seen).
 
-  // Word-by-word reveal for the band-quote
+  // Word-by-word reveal for the band-quote — scroll-position driven
   (function () {
     var el = document.querySelector('[data-word-reveal]');
     if (!el) return;
     var text = el.textContent.trim();
     var words = text.split(/\s+/);
-    el.innerHTML = words.map(function (w, i) {
-      return '<span class="word" style="transition-delay:' + (i * 55) + 'ms">' + w + '</span>';
+    el.innerHTML = words.map(function (w) {
+      return '<span class="word">' + w + '</span>';
     }).join(' ');
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { el.classList.add('words-visible'); obs.disconnect(); }
-      });
-    }, { threshold: 0.3 });
-    obs.observe(el);
+    var spans = Array.from(el.querySelectorAll('.word'));
+    var n = spans.length;
+    var raf = 0;
+    function tick() {
+      var rect = el.getBoundingClientRect();
+      var vh = window.innerHeight;
+      // progress: 0 when el bottom hits viewport bottom, 1 when el top clears top 30%
+      var progress = (vh - rect.top) / (rect.height + vh * 0.55);
+      progress = progress < 0 ? 0 : progress > 1 ? 1 : progress;
+      for (var i = 0; i < n; i++) {
+        var threshold = i / n;
+        var wordP = (progress - threshold) / (1 / n) * 1.6;
+        wordP = wordP < 0 ? 0 : wordP > 1 ? 1 : wordP;
+        spans[i].style.opacity = wordP;
+        spans[i].style.transform = 'translateY(' + ((1 - wordP) * 10) + 'px)';
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    tick();
   })();
 </script>
 

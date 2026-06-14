@@ -66,267 +66,56 @@
 
 <section class="page-hero">
   <h1 class="page-hero-title">Five Elements</h1>
-  <div class="page-hero-cn">五行自测</div>
+  <div class="page-hero-cn">八字五行</div>
   <div class="page-hero-divider"></div>
   <p class="page-hero-desc">
-    <span class="cn-only">八道问题，洞察你的五行能量状态。结果仅供基础参考，如需深度解读，欢迎体验一对一定制服务。</span>
-    <span class="en-only">Eight questions to illuminate your Five Elements energy. Results are for basic reference, for an in-depth reading, explore our bespoke custom service.</span>
+    <span class="cn-only">输入你的出生信息，AI 将为你解读八字五行能量分布，推荐最适合你的灵石。</span>
+    <span class="en-only">Enter your birth details and receive a personalised Five Elements reading from your BaZi chart, with stones chosen for your energy.</span>
   </p>
 </section>
 
-<!-- Quiz -->
+<!-- Birth data form -->
 <section class="quiz-wrap" id="quizSection">
-  <div class="quiz-inner">
-    <!-- Q1 -->
-    <div class="question-panel active" data-q="0">
-      <div class="question-num">
-        <span class="cn-only">第 1 题 / 共 8 题</span>
-        <span class="en-only">Question 1 / 8</span>
-      </div>
-      <div class="question-text">
-        <span class="cn-only">在人群中，你通常是？</span>
-        <span class="en-only">In a group, you tend to be…</span>
-      </div>
-      <div class="options">
-        <button class="option-btn" data-score="fire:2">
-          <span class="option-text cn-only">活跃中心，自然而然带动气氛</span>
-          <span class="option-text en-only">The energetic centre, you naturally lift the mood</span>
+  <div class="quiz-inner bazi-form-wrap">
+    <div class="bazi-field">
+      <label class="bazi-label" for="birthDate">
+        <span class="cn-only">出生日期</span>
+        <span class="en-only">Date of birth</span>
+      </label>
+      <input class="bazi-input" type="date" id="birthDate" required>
+    </div>
+    <div class="bazi-field">
+      <label class="bazi-label" for="birthTime">
+        <span class="cn-only">出生时间 <span class="bazi-optional">（选填）</span></span>
+        <span class="en-only">Time of birth <span class="bazi-optional">(optional)</span></span>
+      </label>
+      <input class="bazi-input" type="time" id="birthTime">
+    </div>
+    <div class="bazi-field">
+      <label class="bazi-label">
+        <span class="cn-only">性别</span>
+        <span class="en-only">Gender</span>
+      </label>
+      <div class="bazi-gender">
+        <button class="bazi-gender-btn" data-value="male" type="button">
+          <span class="cn-only">男</span><span class="en-only">Male</span>
         </button>
-        <button class="option-btn" data-score="wood:2">
-          <span class="option-text cn-only">主动发起，喜欢领导方向</span>
-          <span class="option-text en-only">The one who initiates, you like to lead the way</span>
-        </button>
-        <button class="option-btn" data-score="earth:2">
-          <span class="option-text cn-only">默默支持，让所有人感到安心</span>
-          <span class="option-text en-only">A quiet support, you make everyone feel at ease</span>
-        </button>
-        <button class="option-btn" data-score="water:2">
-          <span class="option-text cn-only">冷静观察，细心感知每个细节</span>
-          <span class="option-text en-only">The quiet observer, you notice what others miss</span>
+        <button class="bazi-gender-btn" data-value="female" type="button">
+          <span class="cn-only">女</span><span class="en-only">Female</span>
         </button>
       </div>
     </div>
-
-    <!-- Q2 -->
-    <div class="question-panel" data-q="1">
-      <div class="question-num">
-        <span class="cn-only">第 2 题 / 共 8 题</span>
-        <span class="en-only">Question 2 / 8</span>
-      </div>
-      <div class="question-text">
-        <span class="cn-only">面对压力时，你的第一反应是？</span>
-        <span class="en-only">When under pressure, your first instinct is…</span>
-      </div>
-      <div class="options">
-        <button class="option-btn" data-score="metal:2">
-          <span class="option-text cn-only">立刻整理思路，找出最优方案</span>
-          <span class="option-text en-only">Organise your thoughts and find the best plan</span>
-        </button>
-        <button class="option-btn" data-score="fire:2">
-          <span class="option-text cn-only">用热情和行动打破僵局</span>
-          <span class="option-text en-only">Break through with energy and action</span>
-        </button>
-        <button class="option-btn" data-score="water:2">
-          <span class="option-text cn-only">先沉淀情绪，再冷静应对</span>
-          <span class="option-text en-only">Settle your emotions first, then respond calmly</span>
-        </button>
-        <button class="option-btn" data-score="earth:2">
-          <span class="option-text cn-only">寻求他人帮助，倚靠集体力量</span>
-          <span class="option-text en-only">Seek support, you draw strength from others</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Q3 -->
-    <div class="question-panel" data-q="2">
-      <div class="question-num">
-        <span class="cn-only">第 3 题 / 共 8 题</span>
-        <span class="en-only">Question 3 / 8</span>
-      </div>
-      <div class="question-text">
-        <span class="cn-only">最能令你放松身心的环境是？</span>
-        <span class="en-only">The environment that restores you most is…</span>
-      </div>
-      <div class="options">
-        <button class="option-btn" data-score="wood:2">
-          <span class="option-text cn-only">郁郁葱葱的森林或公园</span>
-          <span class="option-text en-only">A lush forest or park</span>
-        </button>
-        <button class="option-btn" data-score="water:2">
-          <span class="option-text cn-only">海边或湖畔，听水声</span>
-          <span class="option-text en-only">By the sea or lake, listening to water</span>
-        </button>
-        <button class="option-btn" data-score="fire:2">
-          <span class="option-text cn-only">充满温暖光线与人气的咖啡馆</span>
-          <span class="option-text en-only">A warm, lively café full of light and energy</span>
-        </button>
-        <button class="option-btn" data-score="earth:2">
-          <span class="option-text cn-only">家里或熟悉的安静角落</span>
-          <span class="option-text en-only">Home or a quiet familiar corner</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Q4 -->
-    <div class="question-panel" data-q="3">
-      <div class="question-num">
-        <span class="cn-only">第 4 题 / 共 8 题</span>
-        <span class="en-only">Question 4 / 8</span>
-      </div>
-      <div class="question-text">
-        <span class="cn-only">在做决定时，你更依赖？</span>
-        <span class="en-only">When making decisions, you rely more on…</span>
-      </div>
-      <div class="options">
-        <button class="option-btn" data-score="metal:2">
-          <span class="option-text cn-only">逻辑分析与客观数据</span>
-          <span class="option-text en-only">Logic, analysis and objective facts</span>
-        </button>
-        <button class="option-btn" data-score="fire:2">
-          <span class="option-text cn-only">内心的冲动与热情</span>
-          <span class="option-text en-only">Inner impulse and passion</span>
-        </button>
-        <button class="option-btn" data-score="water:2">
-          <span class="option-text cn-only">深入的直觉与内观</span>
-          <span class="option-text en-only">Deep intuition and inner knowing</span>
-        </button>
-        <button class="option-btn" data-score="wood:2">
-          <span class="option-text cn-only">未来愿景与成长潜力</span>
-          <span class="option-text en-only">Future vision and growth potential</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Q5 -->
-    <div class="question-panel" data-q="4">
-      <div class="question-num">
-        <span class="cn-only">第 5 题 / 共 8 题</span>
-        <span class="en-only">Question 5 / 8</span>
-      </div>
-      <div class="question-text">
-        <span class="cn-only">你最常感受到的内心状态是？</span>
-        <span class="en-only">The inner state you experience most often is…</span>
-      </div>
-      <div class="options">
-        <button class="option-btn" data-score="fire:2">
-          <span class="option-text cn-only">热情澎湃，充满想法</span>
-          <span class="option-text en-only">Enthusiastic, brimming with ideas</span>
-        </button>
-        <button class="option-btn" data-score="earth:2">
-          <span class="option-text cn-only">平静踏实，心里有底</span>
-          <span class="option-text en-only">Calm and grounded, steady at heart</span>
-        </button>
-        <button class="option-btn" data-score="metal:2">
-          <span class="option-text cn-only">思绪清晰，专注有序</span>
-          <span class="option-text en-only">Clear-minded, focused and orderly</span>
-        </button>
-        <button class="option-btn" data-score="water:2">
-          <span class="option-text cn-only">深思内敛，喜欢独处探索内心</span>
-          <span class="option-text en-only">Reflective and private, you explore within</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Q6 -->
-    <div class="question-panel" data-q="5">
-      <div class="question-num">
-        <span class="cn-only">第 6 题 / 共 8 题</span>
-        <span class="en-only">Question 6 / 8</span>
-      </div>
-      <div class="question-text">
-        <span class="cn-only">你最看重人际关系中的哪一点？</span>
-        <span class="en-only">In relationships, what matters most to you?</span>
-      </div>
-      <div class="options">
-        <button class="option-btn" data-score="fire:2">
-          <span class="option-text cn-only">真实的热情与深度连结</span>
-          <span class="option-text en-only">Genuine passion and deep connection</span>
-        </button>
-        <button class="option-btn" data-score="wood:2">
-          <span class="option-text cn-only">相互激励，共同成长</span>
-          <span class="option-text en-only">Mutual growth and encouragement</span>
-        </button>
-        <button class="option-btn" data-score="earth:2">
-          <span class="option-text cn-only">稳定信任，长久陪伴</span>
-          <span class="option-text en-only">Stability, trust and lasting companionship</span>
-        </button>
-        <button class="option-btn" data-score="metal:2">
-          <span class="option-text cn-only">诚实清晰，不拖泥带水</span>
-          <span class="option-text en-only">Honesty and clarity, no ambiguity</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Q7 -->
-    <div class="question-panel" data-q="6">
-      <div class="question-num">
-        <span class="cn-only">第 7 题 / 共 8 题</span>
-        <span class="en-only">Question 7 / 8</span>
-      </div>
-      <div class="question-text">
-        <span class="cn-only">最近你常常感到？</span>
-        <span class="en-only">Lately, you often feel…</span>
-      </div>
-      <div class="options">
-        <button class="option-btn" data-score="fire:2">
-          <span class="option-text cn-only">热情高涨但有些心浮气躁</span>
-          <span class="option-text en-only">Energised but restless or anxious</span>
-        </button>
-        <button class="option-btn" data-score="metal:2">
-          <span class="option-text cn-only">思维敏锐但有些过于苛求自己</span>
-          <span class="option-text en-only">Sharp-minded but overly self-critical</span>
-        </button>
-        <button class="option-btn" data-score="water:2">
-          <span class="option-text cn-only">内心宁静但有时疲惫、想要隐遁</span>
-          <span class="option-text en-only">Inwardly still but sometimes exhausted, craving solitude</span>
-        </button>
-        <button class="option-btn" data-score="wood:2">
-          <span class="option-text cn-only">充满冲劲但容易急躁或压力大</span>
-          <span class="option-text en-only">Driven but prone to frustration or stress</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Q8 -->
-    <div class="question-panel" data-q="7">
-      <div class="question-num">
-        <span class="cn-only">第 8 题 / 共 8 题</span>
-        <span class="en-only">Question 8 / 8</span>
-      </div>
-      <div class="question-text">
-        <span class="cn-only">你最向往的人生状态是？</span>
-        <span class="en-only">The life you most aspire to is…</span>
-      </div>
-      <div class="options">
-        <button class="option-btn" data-score="fire:2">
-          <span class="option-text cn-only">充满热忱与光芒，被爱与创造力包围</span>
-          <span class="option-text en-only">Full of passion and radiance, surrounded by love and creativity</span>
-        </button>
-        <button class="option-btn" data-score="earth:2">
-          <span class="option-text cn-only">踏实安稳，家庭与事业双丰收</span>
-          <span class="option-text en-only">Grounded and stable, flourishing in both home and work</span>
-        </button>
-        <button class="option-btn" data-score="metal:2">
-          <span class="option-text cn-only">内心纯净，生活精简而有质感</span>
-          <span class="option-text en-only">A clear mind, refined living, quiet elegance</span>
-        </button>
-        <button class="option-btn" data-score="wood:2">
-          <span class="option-text cn-only">不断突破与成长，实现人生使命</span>
-          <span class="option-text en-only">Constant growth and breakthrough, fulfilling your purpose</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="quiz-nav">
-      <button class="btn-secondary quiz-prev" id="btnPrev">
-        <span class="cn-only">上一题</span>
-        <span class="en-only">Previous</span>
-      </button>
-      <button class="btn-primary quiz-next" id="btnNext" disabled>
-        <span class="cn-only">下一题</span>
-        <span class="en-only">Next</span>
-      </button>
-    </div>
+    <div class="bazi-error" id="baziError" style="display:none"></div>
+    <button class="btn-primary bazi-submit" id="btnSubmit" disabled>
+      <span class="bazi-submit-text">
+        <span class="cn-only">解读我的五行</span>
+        <span class="en-only">Reveal my element</span>
+      </span>
+      <span class="bazi-loading" style="display:none">
+        <span class="cn-only">解读中…</span>
+        <span class="en-only">Reading…</span>
+      </span>
+    </button>
   </div>
 </section>
 
@@ -418,8 +207,6 @@
 </footer>
 
 <script>
-// ===== Language toggle =====
-const toggleBtn = document.getElementById('langToggle');
 const body = document.body;
 
 
@@ -492,71 +279,91 @@ const ELEMENTS = {
   }
 };
 
-// ===== Quiz state =====
-const TOTAL = 8;
-let current = 0;
-const answers = new Array(TOTAL).fill(null); // { element, score }
-const scores = { fire: 0, earth: 0, metal: 0, water: 0, wood: 0 };
+// ===== BaZi form =====
+// Stem→element mapping
+const STEM_EL  = { 甲:'wood',乙:'wood',丙:'fire',丁:'fire',戊:'earth',己:'earth',庚:'metal',辛:'metal',壬:'water',癸:'water' };
+const BRANCH_EL = { 子:'water',丑:'earth',寅:'wood',卯:'wood',辰:'earth',巳:'fire',午:'fire',未:'earth',申:'metal',酉:'metal',戌:'earth',亥:'water' };
 
-const panels = document.querySelectorAll('.question-panel');
-const progressFill = document.getElementById('progressFill');
-const progressLabel = document.getElementById('progressLabel');
-const btnPrev = document.getElementById('btnPrev');
-const btnNext = document.getElementById('btnNext');
+let selectedGender = null;
+const birthDateEl = document.getElementById('birthDate');
+const birthTimeEl = document.getElementById('birthTime');
+const btnSubmit   = document.getElementById('btnSubmit');
+const baziError   = document.getElementById('baziError');
 
-function updateProgress() {
-  if (!progressFill && !progressLabel) return;
-}
-
-function showPanel(idx) {
-  panels.forEach((p, i) => {
-    p.classList.toggle('active', i === idx);
+document.querySelectorAll('.bazi-gender-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.bazi-gender-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    selectedGender = btn.dataset.value;
+    checkReady();
   });
-  btnPrev.classList.toggle('visible', idx > 0);
-  const hasAnswer = answers[idx] !== null;
-  const isLast = idx === TOTAL - 1;
-  btnNext.disabled = !hasAnswer;
-  btnNext.querySelector('.cn-only').textContent = isLast ? '查看结果' : '下一题';
-  btnNext.querySelector('.en-only').textContent = isLast ? 'See Results' : 'Next';
+});
+birthDateEl.addEventListener('change', checkReady);
+
+function checkReady() {
+  btnSubmit.disabled = !(birthDateEl.value && selectedGender);
 }
 
-// Option selection
-panels.forEach((panel, qi) => {
-  panel.querySelectorAll('.option-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove previous selection for this question
-      if (answers[qi]) {
-        const prev = answers[qi];
-        scores[prev.element] -= prev.score;
-      }
-      // Parse score
-      const [el, sc] = btn.dataset.score.split(':');
-      answers[qi] = { element: el, score: parseInt(sc) };
-      scores[el] += parseInt(sc);
-      // UI
-      panel.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      btnNext.disabled = false;
+btnSubmit.addEventListener('click', async () => {
+  baziError.style.display = 'none';
+  const submitText  = btnSubmit.querySelector('.bazi-submit-text');
+  const loadingText = btnSubmit.querySelector('.bazi-loading');
+  submitText.style.display  = 'none';
+  loadingText.style.display = '';
+  btnSubmit.disabled = true;
+
+  try {
+    const res = await fetch('/api/bazi', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        birthDate: birthDateEl.value,
+        birthTime: birthTimeEl.value || undefined,
+        gender: selectedGender,
+      }),
     });
-  });
-});
-
-btnPrev.addEventListener('click', () => {
-  if (current > 0) { current--; showPanel(current); updateProgress(); }
-});
-
-btnNext.addEventListener('click', () => {
-  if (current < TOTAL - 1) {
-    current++;
-    showPanel(current);
-    updateProgress();
-  } else {
-    showResults();
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Reading unavailable');
+    showResults(parseBaziScores(data));
+  } catch (e) {
+    baziError.textContent = e.message;
+    baziError.style.display = '';
+    submitText.style.display  = '';
+    loadingText.style.display = 'none';
+    btnSubmit.disabled = false;
   }
 });
 
+function parseBaziScores(data) {
+  const scores = { fire: 0, earth: 0, metal: 0, water: 0, wood: 0 };
+  // Try to read element strengths directly from the API response
+  try {
+    const result = data.result || data;
+    const json = result.data ? result.data.json : result.json || result;
+    // Try elementStrength / fiveElements objects
+    const strength = json.elementStrength || json.fiveElements || json.elements;
+    if (strength) {
+      const map = { Wood:'wood', Fire:'fire', Earth:'earth', Metal:'metal', Water:'water',
+                    wood:'wood', fire:'fire', earth:'earth', metal:'metal', water:'water',
+                    木:'wood', 火:'fire', 土:'earth', 金:'metal', 水:'water' };
+      Object.entries(strength).forEach(([k, v]) => {
+        const el = map[k]; if (el) scores[el] += Number(v) || 0;
+      });
+      if (Object.values(scores).some(v => v > 0)) return scores;
+    }
+    // Fallback: scan all stems + branches in the four pillars
+    const chart = json.chart || json.pillars || json.fourPillars || json;
+    const text = JSON.stringify(chart);
+    [...text].forEach(ch => {
+      if (STEM_EL[ch])   scores[STEM_EL[ch]]   += 2;
+      if (BRANCH_EL[ch]) scores[BRANCH_EL[ch]] += 1;
+    });
+  } catch (_) {}
+  return scores;
+}
+
 // ===== Results =====
-function showResults() {
+function showResults(scores) {
   document.getElementById('quizSection').style.display = 'none';
   const resultsSection = document.getElementById('resultsSection');
   resultsSection.classList.add('active');
@@ -635,8 +442,7 @@ function showResults() {
 }
 
 // Init
-showPanel(0);
-updateProgress();
+checkReady();
 </script>
 <script src="/js/oracle-glyphs.js"></script>
 <script src="js/lang.js"></script>

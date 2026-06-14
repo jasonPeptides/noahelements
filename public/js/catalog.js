@@ -25,7 +25,8 @@
     'featuredImage { url altText } ' +
     'images(first:2){ edges { node { url altText } } } ' +
     'priceRange { minVariantPrice { amount currencyCode } } ' +
-    'variants(first:1){ edges { node { id availableForSale } } }';
+    'variants(first:1){ edges { node { id availableForSale } } } ' +
+    'collections(first:5){ edges { node { handle } } }';
 
   var Q_COLLECTION =
     'query($handle:String!,$first:Int!){ collection(handle:$handle){ id title ' +
@@ -46,7 +47,24 @@
     return url + (url.indexOf('?') === -1 ? '?' : '&') + 'width=' + w;
   }
 
-  function cardHTML(p, i) {
+  var ELEMENT_LABELS = {
+    fire:  { en: 'Spirit of Fire',  zh: '火之灵' },
+    water: { en: 'Spirit of Water', zh: '水之灵' },
+    wood:  { en: 'Spirit of Wood',  zh: '木之灵' },
+    earth: { en: 'Spirit of Earth', zh: '土之灵' },
+    metal: { en: 'Spirit of Metal', zh: '金之灵' },
+  };
+
+  function detectElement(p) {
+    var cols = p.collections && p.collections.edges || [];
+    for (var i = 0; i < cols.length; i++) {
+      var h = cols[i].node.handle;
+      if (ELEMENTS.indexOf(h) !== -1) return h;
+    }
+    return null;
+  }
+
+  function cardHTML(p, i, showLabel) {
     var variant = p.variants && p.variants.edges[0] ? p.variants.edges[0].node : null;
     var imgs = (p.images && p.images.edges || []).map(function (e) { return e.node.url; });
     var imgA = imgs[0] || (p.featuredImage && p.featuredImage.url) || '';
@@ -65,9 +83,24 @@
         '<img class="product-img-b" src="' + esc(sized(imgB, 600)) + '" alt="" loading="lazy" decoding="async">'
       : '';
 
+    var elementLabel = '';
+    if (showLabel) {
+      var element = detectElement(p);
+      var lbl = element && ELEMENT_LABELS[element];
+      if (lbl) {
+        elementLabel =
+          '<div class="product-element-label">' +
+            '<span class="product-element-glyph" data-oracle="' + element + '"></span>' +
+            '<span class="en-only">' + lbl.en + '</span>' +
+            '<span class="cn-only">' + lbl.zh + '</span>' +
+          '</div>';
+      }
+    }
+
     return '<a href="/product.html?handle=' + encodeURIComponent(p.handle) + '" class="product-card' + (soldOut ? ' is-sold-out' : '') + '" data-reveal data-delay="' + delay + '">' +
       '<div class="product-image">' + imgBlock + soldOutBadge + '</div>' +
       '<div class="product-info">' +
+        elementLabel +
         '<div class="product-name">' + esc(p.title) + '</div>' +
         '<div class="product-price">' + esc(price) + '</div>' +
       '</div>' +
@@ -90,16 +123,12 @@
       '</p>';
   }
 
-  function paint(grid, products) {
+  var ELEMENTS = ['fire', 'water', 'wood', 'earth', 'metal'];
+
+  function paint(grid, products, showLabel) {
     if (!products || !products.length) { renderEmpty(grid); return; }
-    grid.innerHTML = products.map(cardHTML).join('');
-    // Reveal animation: [data-reveal] starts at opacity 0 and animates in on
-    // the .visible class. Stagger them in since the IntersectionObserver won't
-    // catch nodes inserted after it was set up.
-    var cards = grid.querySelectorAll('[data-reveal]');
-    cards.forEach(function (el, i) {
-      setTimeout(function () { el.classList.add('visible'); }, 60 + i * 80);
-    });
+    grid.innerHTML = products.map(function (p, i) { return cardHTML(p, i, showLabel); }).join('');
+    if (window.OracleGlyphs && window.OracleGlyphs.paint) window.OracleGlyphs.paint(grid);
   }
 
   async function loadCollection(grid, handle, first) {
@@ -107,14 +136,16 @@
       var data = await gql(Q_COLLECTION, { handle: handle, first: first || 24 });
       var col = data.collection;
       if (!col) { renderEmpty(grid); return; }
-      paint(grid, col.products.edges.map(function (e) { return e.node; }));
+      paint(grid, col.products.edges.map(function (e) { return e.node; }), false);
     } catch (e) { console.error(e); renderError(grid); }
   }
 
   async function loadFeatured(grid, first) {
     try {
       var data = await gql(Q_LATEST, { first: first || 6 });
-      paint(grid, data.products.edges.map(function (e) { return e.node; }));
+      // Show element labels on featured grid only if opted in via attribute
+      var showLabel = grid.hasAttribute('data-show-element-label');
+      paint(grid, data.products.edges.map(function (e) { return e.node; }), showLabel);
     } catch (e) { console.error(e); renderError(grid); }
   }
 

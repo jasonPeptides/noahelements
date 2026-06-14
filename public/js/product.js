@@ -153,6 +153,19 @@
       '<section class="pdp-related" id="pdpRelated">' +
         '<h2 class="pdp-related-title"><span class="en-only">Other Stones for You</span><span class="cn-only">为你推荐的灵石</span></h2>' +
         '<div class="pdp-related-grid" id="pdpRelatedGrid"></div>' +
+      '</section>' +
+      '<section class="band band-blessing-video">' +
+        '<div class="blessing-frame" data-reveal>' +
+          '<video autoplay muted loop playsinline poster="https://res.cloudinary.com/dkpx98xr8/image/upload/f_auto,q_auto/noah-coastal-pagoda-001_nqgg0c">' +
+            '<source src="https://res.cloudinary.com/dkpx98xr8/video/upload/f_auto,q_auto/%E8%A7%82%E9%9F%B3%E5%9C%A3%E5%83%8F%E5%85%A8%E6%99%AF-src_k2_%E7%88%B1%E7%BB%99%E7%BD%91_aigei_com_egr3hq.mp4" type="video/mp4">' +
+          '</video>' +
+          '<div class="band-video-scrim" aria-hidden="true"></div>' +
+          '<div class="blessing-overlay">' +
+            '<span class="section-eyebrow">The Blessing</span>' +
+            '<h2 class="band-title"><span class="en-only">Before this stone reaches you, it goes somewhere holy.</span><span class="cn-only">在这颗灵石到达你手中之前，它先去了一个神圣的地方。</span></h2>' +
+            '<p class="band-sub"><span class="en-only">Every piece travels to Putuo Mountain, the earthly home of Guanyin, for the monthly blessing ceremony. Each order includes a personal certificate with your name and the date it was carried to the mountain.</span><span class="cn-only">每一件作品都会前往普陀山——观音菩萨的人间道场——参加月度开光法会。每份订单附赠专属开光证书，载有你的名字及送往山上的日期。</span></p>' +
+          '</div>' +
+        '</div>' +
       '</section>';
 
     bind();
@@ -161,13 +174,35 @@
   }
 
   /* ---------- Carousel ---------- */
+  function syncDots(i) {
+    root.querySelectorAll('.pdp-dot').forEach(function (d, di) { d.classList.toggle('active', di === i); });
+  }
   function goSlide(i) {
     var n = state.images.length;
     if (!n) return;
     state.slide = (i + n) % n;
     var track = document.getElementById('pdpSlides');
-    if (track) track.style.transform = 'translateX(' + (-state.slide * 100) + '%)';
-    root.querySelectorAll('.pdp-dot').forEach(function (d, di) { d.classList.toggle('active', di === state.slide); });
+    if (!track) return;
+    // Mobile: native scroll snap — scroll into position
+    if (track.scrollWidth > track.clientWidth + 4) {
+      track.scrollTo({ left: state.slide * track.clientWidth, behavior: 'smooth' });
+    }
+    syncDots(state.slide);
+  }
+  function bindScrollSync() {
+    var track = document.getElementById('pdpSlides');
+    if (!track) return;
+    var tid;
+    track.addEventListener('scroll', function () {
+      clearTimeout(tid);
+      tid = setTimeout(function () {
+        var w = track.clientWidth;
+        if (!w) return;
+        var i = Math.round(track.scrollLeft / w);
+        state.slide = i;
+        syncDots(i);
+      }, 80);
+    }, { passive: true });
   }
 
   function syncVariant() {
@@ -187,6 +222,7 @@
   }
 
   function bind() {
+    bindScrollSync();
     root.querySelectorAll('.pdp-dot').forEach(function (d) {
       d.addEventListener('click', function () { goSlide(parseInt(d.getAttribute('data-i'), 10)); });
     });
