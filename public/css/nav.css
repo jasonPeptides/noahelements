@@ -158,8 +158,6 @@ body:has(.doc-hero) .nav:not(.scrolled) .lang-toggle .opt.active { color: var(--
   .nav { padding: 16px var(--pad-x); }
   .nav.scrolled { padding: 12px var(--pad-x); }
   .nav-menu-label { display: none; }       /* keep just the icon on small screens */
-  .nav-brand-name { display: none; }       /* hide wordmark … */
-  .nav-brand svg { display: block; }       /* … show the sigil mark instead */
   .nav-actions { gap: 14px; }
   .nav-menu-panel { min-width: 200px; }
 }

@@ -157,6 +157,7 @@
   background: var(--surface);
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: 0 30px 70px -36px rgba(42, 39, 35, 0.45);
 }
 .featured-grid .product-img-a,
 .featured-grid .product-img-b { transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
@@ -1256,19 +1257,24 @@ body.lang-en .closing-text {
   .nav { padding: 20px 28px; }
   .nav.scrolled { padding: 14px 28px; }
   .nav-menu { display: none; }
-  .nav-brand-name { display: none; }
   .section { padding: 110px 32px; }
   /* section-title size governed by the clamp() scale */
   .section-title-cn { font-size: 13px; letter-spacing: 10px; padding-left: 10px; margin-bottom: 56px; }
   /* Stack as a single column and reorder so the element map sits above the
      Putuo card: title · subtitle · map · putuo · note */
-  .elements-split { flex-direction: column; gap: 0; align-items: stretch; }
+  .elements-split { flex-direction: column; gap: 0; align-items: stretch; padding-left: 0; padding-right: 0; }
+  /* Match discover photo margins: use var(--pad-x) on the section, zero out split's extra padding */
+  .section.elements { padding-left: var(--pad-x); padding-right: var(--pad-x); }
   .elements-left { display: contents; }
   .elements-left .section-title { text-align: center; order: 1; }
   .elements-subtitle { text-align: center; order: 2; margin-top: 18px; }
   .elements-right { order: 3; margin-top: 40px; width: 100%; }
   .putuo-card { order: 4; margin-top: 48px; width: 100%; max-width: 460px; margin-left: auto; margin-right: auto; }
   .elements-discover-note { order: 5; margin-top: 28px; margin-left: auto; margin-right: auto; text-align: center; }
+  /* Map card: same margins as discover photo (from section padding) */
+  .elements-map-box { max-width: none; border-radius: 16px; overflow: hidden; padding-left: 0; padding-right: 0; }
+  /* Clear auto margins so align-items: center properly centers the oversized circle */
+  .elements-circle { margin-left: 0; margin-right: 0; }
   .name-meaning { grid-template-columns: 1fr; gap: 60px; }
   .name-meaning .divider-v { width: 30px; height: 0.5px; margin: 0 auto; }
   .elements-grid { margin: 0 -32px; grid-template-columns: repeat(3, 1fr); }
@@ -1280,13 +1286,13 @@ body.lang-en .closing-text {
   .finale-services { grid-template-columns: 1fr; gap: 60px; }
   .finale-services .divider-v { width: 30px; height: 0.5px; margin: 0 auto; }
 }
-/* Scale the 620px element map down so it fits narrow screens (margins collapse
-   the empty space the transform leaves behind). */
+/* Scale the 500px element map down on narrow screens. Negative margin collapses
+   the dead space that transform leaves in layout flow. Dead space = 500*(1-s)/2. */
 @media (max-width: 720px) {
-  .elements-circle { transform: scale(0.85); margin: -46px auto; }
+  .elements-circle { transform: scale(0.85); margin: -38px 0; }
 }
 @media (max-width: 480px) {
-  .elements-circle { transform: scale(0.66); margin: -104px auto; }
+  .elements-circle { transform: scale(0.62); margin: -95px 0; }
 }
 @media (max-width: 640px) {
   .hero { padding: 100px 24px 80px; }
@@ -1557,6 +1563,7 @@ body.lang-en .closing-text {
   object-fit: cover;
   display: block;
   border-radius: 16px;
+  box-shadow: 0 30px 70px -36px rgba(42, 39, 35, 0.45);
 }
 @media (max-width: 640px) {
   .story-images { grid-template-columns: repeat(3, 1fr); gap: 8px; }
