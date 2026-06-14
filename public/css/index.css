@@ -1257,7 +1257,7 @@ body.lang-en .closing-text {
   .nav { padding: 20px 28px; }
   .nav.scrolled { padding: 14px 28px; }
   .nav-menu { display: none; }
-  .section { padding: 110px 32px; }
+  .section { padding: 70px 32px; }
   /* section-title size governed by the clamp() scale */
   .section-title-cn { font-size: 13px; letter-spacing: 10px; padding-left: 10px; margin-bottom: 56px; }
   /* Stack as a single column and reorder so the element map sits above the
