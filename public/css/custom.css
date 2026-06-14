@@ -522,7 +522,7 @@ body.lang-en .form-success-text {
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
   .nav { padding: 16px 28px; }
-  .nav-brand-name { display: none; }
+
   .page-hero { padding: 120px 24px 60px; }
   .page-hero-title { font-size: 48px; letter-spacing: 8px; }
   .includes, .process, .pricing, .inquiry { padding: 80px 24px; }

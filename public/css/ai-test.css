@@ -478,7 +478,7 @@ body.lang-en .rec-name-cn { display: none; }
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
   .nav { padding: 16px 28px; }
-  .nav-brand-name { display: none; }
+
   .page-hero { padding: 110px 24px 50px; }
   .page-hero-title { font-size: 44px; letter-spacing: 8px; }
   .quiz-wrap, .results-panel { padding: 60px 24px 80px; }

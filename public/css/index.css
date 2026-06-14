@@ -1493,9 +1493,10 @@ body.lang-en .closing-text {
   .discover-text { margin-left: auto; margin-right: auto; }
   .discover-actions { justify-content: center; }
 
-  /* Section images go full-bleed (break out of the section's side padding) */
-  .discover { padding-left: 0; padding-right: 0; }
-  .discover-left { padding: 56px 24px 44px; }
+  /* Discover image: same side margins as element map card */
+  .section.discover { padding-left: var(--pad-x); padding-right: var(--pad-x); padding-bottom: 70px; }
+  .discover-img { border-radius: 16px; }
+  .discover-left { padding: 40px 0 0; }
 }
 @media (max-width: 600px) {
   /* Tighter top/bottom section spacing on mobile */
@@ -1519,8 +1520,10 @@ body.lang-en .closing-text {
 /* ===== Unified body-copy colour on dark sections ===== */
 .elements-subtitle, .discover-text, .band-sub, .story-narrative { color: var(--body); }
 
-/* Discover spacing: column already pads vertically — drop the duplicate section padding */
-.section.discover { padding-top: 0; padding-bottom: 0; }
+/* Discover spacing: column already pads vertically — drop the duplicate section padding (desktop only; mobile sets its own bottom spacing) */
+@media (min-width: 901px) {
+  .section.discover { padding-top: 0; padding-bottom: 0; }
+}
 .discover-split { min-height: 480px; }
 
 /* Featured: tighter top/bottom spacing */

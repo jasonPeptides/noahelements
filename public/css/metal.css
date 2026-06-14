@@ -286,7 +286,7 @@ body.lang-en .philosophy-text {
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
   .nav { padding: 16px 28px; }
-  .nav-brand-name { display: none; }
+
   .page-hero { padding: 120px 24px 60px; }
   .products, .philosophy { padding: 80px 24px; }
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
