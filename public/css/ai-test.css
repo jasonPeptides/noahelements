@@ -508,6 +508,11 @@ body.lang-en .rec-name-cn { display: none; }
   line-height: 1;
   color: var(--khaki);
 }
+.dominant-char .oracle-glyph {
+  display: block;
+  width: 62px;
+  height: 62px;
+}
 .dominant-en {
   font-family: var(--font-body);
   font-size: 11px;

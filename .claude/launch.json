@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "noahelements",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["index.js"],
+      "port": 3000,
+      "env": {
+        "SHOPIFY_STORE_DOMAIN": "noah-elements.myshopify.com",
+        "SHOPIFY_API_VERSION": "2024-01",
+        "SHOPIFY_STOREFRONT_TOKEN": ""
+      }
+    }
+  ]
+}

@@ -162,7 +162,7 @@ body.lang-en .products-title-cn { display: none; }
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 36px;
+  gap: 20px;
 }
 .product-card {
   background: transparent;  border: none;

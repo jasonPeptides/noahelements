@@ -1,0 +1,110 @@
+/* ============================================================
+   Noah Elements — Brand systems
+   Lattice (花窗) · Paper grain · Seal (印章) · Bone-script · Fields
+   Loaded after common.css, before page CSS.
+   ============================================================ */
+
+/* ---------- Surface fields ---------------------------------- */
+/* Reusable grounds the brand speaks in. */
+.field-bone     { background: var(--bone); color: var(--ink); }
+.field-bone-2   { background: var(--bg-2); color: var(--ink); }
+.field-charcoal { background: var(--grad-charcoal); color: var(--bone-text); }
+.field-garnet   { background: var(--grad-garnet); color: var(--bone-text); }
+.field-garnet-flat { background: var(--garnet); color: var(--bone-text); }
+/* On dark/garnet fields, headings and rules read in bone */
+.field-charcoal h1, .field-charcoal h2, .field-charcoal h3,
+.field-garnet h1, .field-garnet h2, .field-garnet h3 { color: var(--bone-text); }
+
+/* ---------- Lattice (花窗) ---------------------------------- */
+/* Carved-screen motif on the diamond. Scale + opacity are the only
+   variables; geometry is locked. Default garnet-on-bone. */
+.lattice {
+  background-image: url("/images/lattice-garnet.svg");
+  background-repeat: repeat;
+  background-size: 30px 30px;          /* scale variable */
+}
+.lattice--bone     { background-image: url("/images/lattice-bone.svg"); }
+.lattice--charcoal { background-image: url("/images/lattice-charcoal.svg"); }
+
+/* Inline-pattern lattice layer (js/lattice.js injects the <svg>). The only form
+   that tiles seamlessly with the 45° rotation. Content sits above with
+   position:relative; z-index:1. */
+.lattice-bg {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  /* dissolve into the sections above & below — soft fade at the band edges */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 74%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 26%, #000 74%, transparent 100%);
+}
+.lattice-bg svg { display: block; width: 100%; height: 100%; filter: blur(0.6px); }
+
+/* Faint enlarged watermark behind content */
+.lattice-watermark { position: relative; isolation: isolate; }
+.lattice-watermark::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image: url("/images/lattice-garnet.svg");
+  background-repeat: repeat;
+  background-size: 64px 64px;
+  opacity: 0.14;
+  pointer-events: none;
+}
+.lattice-watermark.on-dark::before { background-image: url("/images/lattice-bone.svg"); opacity: 0.10; }
+
+/* ---------- Paper grain ------------------------------------- */
+/* Filters live in brand-defs (injected once). Each is a quiet grain
+   over a flat colour, so type stays crisp on top. */
+.paper { position: relative; }
+.paper::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  z-index: 0;
+}
+.paper > * { position: relative; z-index: 1; }
+.paper-rice::before     { filter: url(#paper-rice);     opacity: .18;  mix-blend-mode: multiply; }
+.paper-handmade::before { filter: url(#paper-handmade); opacity: .18;  mix-blend-mode: multiply; }
+.paper-laid::before {
+  filter: url(#paper-rice); opacity: .18; mix-blend-mode: multiply;
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 6px, rgba(42,39,35,.04) 6px, rgba(42,39,35,.04) 7px);
+}
+.paper-garnet::before   { filter: url(#paper-garnet);   opacity: .22;  mix-blend-mode: overlay; }
+/* fibre (directional turbulence) on light grounds — multiply so it reads as
+   pressed silk/fibre on bone */
+.paper-fibre::before    { filter: url(#paper-garnet);   opacity: .18;  mix-blend-mode: multiply; }
+
+/* ---------- Bone-script glyphs ------------------------------ */
+/* The oracle-bone five-element set (oracle-glyphs.js) reads in bone
+   on charcoal / garnet grounds, garnet on bone. */
+.oracle-glyph { display: block; }
+.on-dark .oracle-glyph,
+.field-charcoal .oracle-glyph,
+.field-garnet .oracle-glyph { color: var(--bone-text); }
+
+/* ---------- Seal (印章) ------------------------------------- */
+/* Ceremony mark. Currently a vectorising-pending raster of the press;
+   shown as a stamped image. Used sparingly. */
+.seal {
+  display: inline-block;
+  width: 96px; height: 96px;
+  /* Drawn seal vector, recolourable: the shape masks `currentColor`, so the
+     ink takes the element's colour and the facet/eye negative space stays open
+     on any ground (cinnabar, garnet, or bone-reversed). */
+  background-color: currentColor;
+  -webkit-mask: url("/images/seal-inscribe.svg") center / contain no-repeat;
+          mask: url("/images/seal-inscribe.svg") center / contain no-repeat;
+}
+.seal--sm { width: 64px; height: 64px; }
+.seal--lg { width: 132px; height: 132px; }
+/* Drawn-seal: rough red disc behind, glyph takes the element's `color` */
+.seal-svg .seal-bg { fill: var(--cinnabar); }
+
+/* ---------- Facet (utility mark) --------------------------- */
+.facet {
+  display: inline-block; width: 12px; height: 12px;
+  background: var(--garnet);
+  transform: rotate(45deg);
+}
+
+/* ---------- Emboss / deboss (screen approximation) --------- */
+.deboss { color: var(--bone);
+  text-shadow: 1px 1px 0 rgba(255,255,255,.7), -1px -1px 1px rgba(120,110,90,.45); }
+.emboss { color: var(--bone);
+  text-shadow: -1px -1px 0 rgba(255,255,255,.7), 1px 1px 1px rgba(120,110,90,.45); }

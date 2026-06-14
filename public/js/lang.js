@@ -95,7 +95,7 @@
         entries.forEach(function (en) {
           if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      }, { threshold: 0.15, rootMargin: '0px 0px -22% 0px' });
       revealEls.forEach(function (el) { io.observe(el); });
     }
   }

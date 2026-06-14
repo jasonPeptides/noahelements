@@ -63,6 +63,50 @@ const apiLimiter = rateLimit({ windowMs: 60 * 1000, max: 80 });
 app.post('/api/shopify', apiLimiter, shopifyProxy);
 app.get('/api/shopify/health', shopifyHealth);
 
+// ---- askTIAN BaZi proxy (Bearer key stays server-side) ----
+// Real contract (reverse-engineered; the integration PDF's path/shape was wrong):
+//   GET https://api.asktian.com/api/trpc/bazi.chart
+//   tRPC query, superjson input: ?input={"json":{birthYear,birthMonth,birthDay,
+//     birthHour,birthMinute,gender:"M"|"F",language:"en"}}
+//   A browser UA is required or Cloudflare returns 403 (code 1010).
+const baziLimiter = rateLimit({ windowMs: 60 * 1000, max: 20 });
+app.post('/api/bazi', baziLimiter, async (req, res) => {
+  const key = process.env.ASKTIAN_API_KEY;
+  if (!key) return res.status(503).json({ error: 'BaZi service not configured.' });
+  const { birthDate, birthTime, gender } = req.body || {};
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(birthDate || '') ||
+      (gender !== 'male' && gender !== 'female')) {
+    return res.status(400).json({ error: 'Invalid birth details.' });
+  }
+  const [y, mo, d] = birthDate.split('-').map(Number);
+  let h = 12, mi = 0;
+  if (/^\d{2}:\d{2}$/.test(birthTime || '')) { [h, mi] = birthTime.split(':').map(Number); }
+  const input = {
+    json: {
+      birthYear: y, birthMonth: mo, birthDay: d,
+      birthHour: h, birthMinute: mi,
+      gender: gender === 'female' ? 'F' : 'M',
+      language: 'en',
+    },
+  };
+  const url = 'https://api.asktian.com/api/trpc/bazi.chart?input=' +
+    encodeURIComponent(JSON.stringify(input));
+  try {
+    const upstream = await fetch(url, {
+      headers: {
+        'Authorization': 'Bearer ' + key,
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) ' +
+          'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+      },
+    });
+    const text = await upstream.text();
+    res.status(upstream.status).type('application/json').send(text);
+  } catch (e) {
+    res.status(502).json({ error: 'BaZi service unavailable.' });
+  }
+});
+
 // ---- Visitor geo (country) for default currency ----
 app.get('/api/geo', (req, res) => {
   // Hosts/CDNs expose the visitor country via a header. Falls back to null.
@@ -124,6 +168,12 @@ app.get('/{*path}', (req, res) => {
   res.status(404).sendFile(path.join(PUBLIC, '404.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Run a real server only when executed directly (local / Node host).
+// On Vercel the app is imported and used as a serverless handler instead.
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;

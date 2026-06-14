@@ -1,10 +1,5 @@
-:root {
-  --fire:  #C45A35;
-  --earth: #B07845;
-  --metal: #887060;
-  --water: #5878A0;
-  --wood:  #6A8040;
-}
+/* Element colours are defined in common.css (Bone/Garnet brand palette).
+   No per-page override — collection coding is secondary to garnet. */
 
 /* ============ Navigation ============ */
 .nav {
@@ -144,7 +139,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 20px;
 }
 /* Featured cards reuse the collection-page card template */
 .featured-grid .product-card {
@@ -804,6 +799,12 @@ body.lang-en .elements-discover-note { font-family: var(--font-body); font-size:
   text-shadow: 0 2px 16px rgba(0,0,0,0.5);
   pointer-events: none;
 }
+.element-char .oracle-glyph {
+  display: block;
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,0.5));
+}
 
 .element-en-inner {
   font-family: var(--font-body);
@@ -1041,7 +1042,7 @@ body.lang-en .card-desc { font-family: var(--font-body); font-size: 13px; letter
 .discover-btn-secondary {
   display: inline-flex; align-items: center; justify-content: center;
   font-family: var(--font-head); font-weight: 400;
-  font-size: 14px; letter-spacing: 2px; text-transform: none;
+  font-size: 15px; letter-spacing: 2px; text-transform: none;
   padding: 16px 40px; cursor: pointer; text-decoration: none;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -1232,6 +1233,7 @@ body.lang-en .closing-text {
   .name-meaning .divider-v { width: 30px; height: 0.5px; margin: 0 auto; }
   .elements-grid { margin: 0 -32px; grid-template-columns: repeat(3, 1fr); }
   .element-char { font-size: 64px; }
+  .element-char .oracle-glyph { width: 60px; height: 60px; }
   .blessing { padding: 50px 28px; }
   .cards { grid-template-columns: 1fr; gap: 14px; }
   .finale { padding: 100px 32px 60px; }
@@ -1306,6 +1308,7 @@ body.lang-en .closing-text {
   display: block;
   font-family: var(--font-body);
   font-size: 12px;
+  font-weight: 600;
   letter-spacing: 3.5px;
   text-transform: uppercase;
   color: var(--khaki);
@@ -1478,3 +1481,144 @@ body.lang-en .closing-text {
 /* Featured: tighter top/bottom spacing */
 .featured { padding-top: clamp(44px, 6vh, 72px); padding-bottom: clamp(44px, 6vh, 72px); }
 .featured-header { margin-bottom: 44px; }
+
+/* =====================================================================
+   Bone / Garnet re-skin — section treatments (Brand Elements)
+   Appended last so it governs sections originally authored on dark.
+   ===================================================================== */
+
+/* ---- Hero: cinematic video, untinted — neutral foot fade only for legibility -- */
+.hero-scrim {
+  background:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 45%,
+      rgba(0, 0, 0, 0.30) 78%,
+      rgba(0, 0, 0, 0.58) 100%);
+  mix-blend-mode: normal;
+}
+.hero-headline { color: var(--bone-text); }
+
+/* ---- Grounds: Five Elements & Featured solid bone; Story gradient ---- */
+.elements, .featured { background: var(--bone); }
+.story { background: var(--grad-bone); }
+/* map: bone-script glyphs read in bone on charcoal discs */
+.element-card-circle { background: var(--grad-charcoal); }
+.element-card:hover .element-card-circle {
+  box-shadow: 0 0 40px -6px rgba(110, 28, 42, 0.55);
+}
+.element-char { color: var(--bone-text); }
+.element-char .oracle-glyph { filter: drop-shadow(0 2px 10px rgba(0,0,0,0.35)); }
+.element-en-inner { color: rgba(237, 231, 220, 0.72); }
+.elements-connector path { stroke: var(--garnet); stroke-width: 2.25; opacity: 0.6; }
+.elements-bg-hint { color: rgba(42, 39, 35, 0.5); }
+
+/* ---- Statement band (directly under Five Elements): charcoal field, bone
+        text, bone lattice ---- */
+.band-quote {
+  position: relative;
+  color: var(--bone-text);
+  background: var(--grad-charcoal);
+}
+.band-quote-text { position: relative; z-index: 1; color: var(--bone-text); }
+/* lattice fades in/out at the band edges so it melts into the sections above & below */
+.band-quote .lattice-bg {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 76%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 76%, transparent 100%);
+}
+
+/* ---- Discover ("find your element"): solid bone (matches Featured below),
+        photo in a curved card ---- */
+.discover { color: var(--ink); background: var(--bone); }
+.discover-left .section-title { color: var(--terra); }
+.discover-text { color: var(--body); }
+.section.discover { padding: var(--pad-y) var(--pad-x); }
+.discover-split {
+  max-width: var(--content); margin: 0 auto;
+  min-height: 0; align-items: center; gap: clamp(32px, 5vw, 72px);
+}
+.discover-left { flex: 1; }
+.discover-right { flex: 0 0 46%; position: relative; overflow: visible; }
+.discover-img {
+  position: static; width: 100%; height: auto; display: block;
+  object-fit: cover; border-radius: 16px;
+  box-shadow: 0 30px 70px -36px rgba(42, 39, 35, 0.45);
+}
+
+/* ---- Featured product cards: taller imagery (+100% height) ---- */
+.featured-grid .product-image { aspect-ratio: 3 / 4; }
+
+/* ---- Blessing: contained rounded video on a bone ground (matches Featured) ---- */
+.band-blessing-video {
+  background: var(--bone);
+  padding: var(--pad-y) var(--pad-x);
+}
+.blessing-frame {
+  position: relative;
+  max-width: var(--content);
+  margin: 0 auto;
+  min-height: clamp(420px, 62vh, 640px);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  box-shadow: 0 30px 70px -36px rgba(42, 39, 35, 0.45);
+}
+.blessing-frame video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.band-video-scrim {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.5) 100%);
+}
+.blessing-overlay {
+  position: relative; z-index: 2;
+  max-width: 760px; padding: 0 var(--pad-x);
+  color: var(--bone-text);
+}
+.blessing-overlay .section-eyebrow { color: rgba(237, 231, 220, 0.85); text-align: center; }
+.blessing-overlay .band-title,
+.blessing-overlay .band-sub { color: var(--bone-text); text-shadow: 0 2px 18px rgba(0,0,0,0.55); }
+.blessing-overlay .band-sub { color: rgba(237, 231, 220, 0.92); margin: 0 auto; }
+.blessing-cta { margin-top: 32px; }
+.blessing-cta .btn-secondary { color: var(--bone-text); border-color: rgba(237, 231, 220, 0.55); }
+.blessing-cta .btn-secondary:hover { border-color: var(--bone-text); opacity: 1; }
+
+/* ---- Bespoke Service: bone field, debossed title, red-disc seal ---- */
+.consultation { background: var(--grad-bone); }
+/* wider content + sit above the faint lattice layer */
+.consultation-inner { max-width: 860px; position: relative; z-index: 1; }
+.story-narrative, .story-lead { max-width: 940px; }
+.consultation-cta { background: #161310; border-color: #161310; color: var(--bone-text); }
+.consultation-cta:hover { background: #000; border-color: #000; }
+.consultation-seal { color: #F4EEE2; }
+/* Debossed (pressed-in) title: dark shadow above the glyphs, a faint bone
+   highlight below — reads as carved inward. Lighter fill for legibility. */
+/* Bespoke title — luxury two-tier hierarchy on the bone ground:
+   a small tracked uppercase kicker over the large serif word. */
+.consultation-title {
+  color: #161310;
+  text-shadow: none;
+  letter-spacing: 0.4px;
+}
+.consult-kicker {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--garnet);
+  margin-bottom: 18px;
+}
+.consultation-text { color: #161310; }
+.consultation-seal {
+  display: block; width: 128px; margin: 0 auto 24px; color: #F4EEE2;
+}
+.consultation-seal .seal-svg { display: block; width: 100%; height: auto; }
+
+/* ---- Full-bleed media bands sit on bone, not the old void ---- */
+.band-video, .band-blessing, .brush-transition { background-color: var(--bone); }
+
+/* ---- Editorial garnet field keeps bone copy ---- */
+.editorial { background: var(--grad-garnet); }
