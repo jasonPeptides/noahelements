@@ -157,7 +157,6 @@
   background: var(--surface);
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 30px 70px -36px rgba(42, 39, 35, 0.45);
 }
 .featured-grid .product-img-a,
 .featured-grid .product-img-b { transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
@@ -1269,7 +1268,7 @@ body.lang-en .closing-text {
   .elements-left .section-title { text-align: center; order: 1; }
   .elements-subtitle { text-align: center; order: 2; margin-top: 18px; }
   .elements-right { order: 3; margin-top: 40px; width: 100%; }
-  .putuo-card { order: 4; margin-top: 48px; width: 100%; max-width: 460px; margin-left: auto; margin-right: auto; }
+  .putuo-card { order: 4; margin-top: 24px; width: 100%; max-width: 460px; margin-left: auto; margin-right: auto; }
   .elements-discover-note { order: 5; margin-top: 28px; margin-left: auto; margin-right: auto; text-align: center; }
   /* Map card: same margins as discover photo (from section padding) */
   .elements-map-box { max-width: none; border-radius: 16px; overflow: hidden; padding-left: 0; padding-right: 0; }
@@ -1626,19 +1625,23 @@ body.lang-en .closing-text {
 .discover { color: var(--ink); background: var(--bone); }
 .discover-left .section-title { color: var(--terra); }
 .discover-text { color: var(--body); }
-/* connected to the Five Elements map above: image rises up into the elements section */
-.elements { padding-bottom: 340px; }
-.section.discover {
-  padding: 0 var(--pad-x) var(--pad-y);
-  margin-top: -340px;
-  position: relative; z-index: 1;
+/* connected to the Five Elements map above: image rises up into the elements section (desktop only) */
+@media (min-width: 601px) {
+  .elements { padding-bottom: 340px; }
+  .section.discover {
+    padding: 0 var(--pad-x) var(--pad-y);
+    margin-top: -340px;
+    position: relative; z-index: 1;
+  }
 }
 .discover-split { align-items: flex-start; }
 .discover-split {
   max-width: var(--content); margin: 0 auto;
   min-height: 0; align-items: flex-end; gap: clamp(32px, 5vw, 72px);
 }
-.discover-left { flex: 1; padding-top: 180px; }
+@media (min-width: 601px) {
+  .discover-left { flex: 1; padding-top: 180px; }
+}
 .discover-right { flex: 0 0 46%; position: relative; overflow: visible; }
 .discover-img {
   position: static; width: 100%; height: auto; display: block;

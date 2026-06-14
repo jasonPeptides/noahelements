@@ -24,6 +24,23 @@
 }
 .nav:not(.scrolled) { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
 .nav:not(.scrolled) svg { filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.5)); }
+/* PDP: always show the solid bone bar — no transparent state over product images */
+body.pdp-page .nav {
+  padding: 14px var(--pad-x);
+  background: rgba(237, 231, 220, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 0.5px solid rgba(110, 28, 42, 0.16);
+  text-shadow: none;
+  color: var(--ink);
+}
+body.pdp-page .nav .nav-brand,
+body.pdp-page .nav .nav-brand-name,
+body.pdp-page .nav .nav-menu-btn,
+body.pdp-page .nav .cart-trigger,
+body.pdp-page .nav .lang-toggle { color: var(--ink); }
+body.pdp-page .nav svg { filter: none; }
+
 /* Solid bone bar once scrolled past the hero */
 .nav.scrolled {
   padding: 14px var(--pad-x);
